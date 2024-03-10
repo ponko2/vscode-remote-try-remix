@@ -2,5 +2,15 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.formatOnType": true
+  "editor.formatOnType": true,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
 }
