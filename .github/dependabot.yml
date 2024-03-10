@@ -35,6 +35,9 @@ updates:
       prefix: build
     versioning-strategy: increase
     groups:
+      commitlint:
+        patterns:
+          - "@commitlint/*"
       react:
         patterns:
           - react
