@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
     "ms-vscode-remote.vscode-remote-extensionpack"
   ]
 }

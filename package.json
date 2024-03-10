@@ -19,6 +19,11 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^9.0.11",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^15.2.2",
+    "npm-run-all2": "^6.1.2",
     "typescript": "~5.3.3",
     "vite": "^5.1.5",
     "vite-tsconfig-paths": "^4.3.1"
@@ -30,7 +35,11 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "fix": "run-s fix:eslint",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "lint": "run-p --aggregate-output -c -l lint:*",
+    "lint:eslint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "prepare": "is-ci || husky",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
