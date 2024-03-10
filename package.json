@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -24,6 +25,7 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.2",
     "npm-run-all2": "^6.1.2",
+    "prettier": "^3.2.5",
     "typescript": "~5.3.3",
     "vite": "^5.1.5",
     "vite-tsconfig-paths": "^4.3.1"
@@ -35,10 +37,12 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "fix": "run-s fix:eslint",
+    "fix": "run-s fix:eslint fix:prettier",
     "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix:prettier": "npm run lint:prettier -- --write",
     "lint": "run-p --aggregate-output -c -l lint:*",
     "lint:eslint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "lint:prettier": "prettier . --check",
     "prepare": "is-ci || husky",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"

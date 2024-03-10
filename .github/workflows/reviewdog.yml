@@ -22,3 +22,20 @@ jobs:
           fail_on_error: true
           level: error
           reporter: github-pr-review
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npx --no -- prettier --write .
+      - uses: reviewdog/action-suggester@v1
+        with:
+          fail_on_error: true
+          level: error
+          tool_name: Prettier
