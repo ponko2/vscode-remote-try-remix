@@ -175,7 +175,7 @@ module.exports = {
     },
     {
       files: ["**/*.{ts,tsx}"],
-      excludedFiles: ["vite.config.ts"],
+      excludedFiles: ["vite.config.ts", "vitest.setup.ts"],
       extends: [
         "plugin:@typescript-eslint/recommended-type-checked",
         "plugin:@typescript-eslint/stylistic-type-checked",
@@ -195,6 +195,65 @@ module.exports = {
 
         // Enforce the use of top-level import type qualifier when an import only has specifiers with inline type qualifiers
         "@typescript-eslint/no-import-type-side-effects": "error",
+      },
+    },
+
+    // Testing
+    {
+      files: ["*.test.ts", "*.test.tsx"],
+      extends: [
+        "plugin:vitest/recommended",
+        "plugin:testing-library/react",
+        "prettier",
+      ],
+      rules: {
+        // Vitest
+        // https://github.com/veritem/eslint-plugin-vitest
+        // ----------------------------------------------
+
+        // Disallow alias methods
+        "vitest/no-alias-methods": "error",
+
+        // Disallow conditional expects
+        "vitest/no-conditional-expect": "error",
+
+        // Disallow disabled tests
+        "vitest/no-disabled-tests": "warn",
+
+        // Disallow using a callback in asynchronous tests and hooks
+        "vitest/no-done-callback": "error",
+
+        // Disallow focused tests
+        "vitest/no-focused-tests": "error",
+
+        // Disallow string interpolation in snapshots
+        "vitest/no-interpolation-in-snapshots": "error",
+
+        // Disallow importing from mocks directory
+        "vitest/no-mocks-import": "error",
+
+        // Disallow using `expect` outside of `it` or `test` blocks
+        "vitest/no-standalone-expect": "error",
+
+        // Disallow using `test` as a prefix
+        "vitest/no-test-prefixes": "error",
+
+        // Suggest using toBe()
+        "vitest/prefer-to-be": "error",
+
+        // Prefer using toContain()
+        "vitest/prefer-to-contain": "error",
+
+        // Suggest using toHaveLength()
+        "vitest/prefer-to-have-length": "error",
+
+        // Testing Library
+        // https://github.com/testing-library/eslint-plugin-testing-library
+        // ----------------------------------------------
+
+        // Disallow the use of cleanup
+        // Temporary workaround for https://github.com/vitest-dev/vitest/issues/1430
+        "testing-library/no-manual-cleanup": "off",
       },
     },
   ],

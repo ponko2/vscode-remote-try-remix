@@ -52,3 +52,7 @@ updates:
       types:
         patterns:
           - "@types/*"
+      vitest:
+        patterns:
+          - "@vitest/*"
+          - vitest

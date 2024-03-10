@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { vitePlugin as remix } from "@remix-run/dev";
 import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
@@ -8,5 +9,9 @@ const isStorybook = process.argv[1]?.includes("storybook");
 installGlobals();
 
 export default defineConfig({
-  plugins: [!isStorybook && remix(), tsconfigPaths()],
+  plugins: [!process.env["VITEST"] && !isStorybook && remix(), tsconfigPaths()],
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./vitest.setup.ts"],
+  },
 });
