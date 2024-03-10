@@ -1,4 +1,6 @@
+*storybook.log
 .env
 /.cache
 /build
 node_modules
+storybook-static
