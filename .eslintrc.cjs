@@ -172,5 +172,29 @@ module.exports = {
         "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       },
     },
+    {
+      files: ["**/*.{ts,tsx}"],
+      excludedFiles: ["vite.config.ts"],
+      extends: [
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+        "prettier",
+      ],
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
+      rules: {
+        // TypeScript
+        // https://typescript-eslint.io/rules/
+        // ----------------------------------------------
+
+        // Enforce consistent usage of type imports
+        "@typescript-eslint/consistent-type-imports": "error",
+
+        // Enforce the use of top-level import type qualifier when an import only has specifiers with inline type qualifiers
+        "@typescript-eslint/no-import-type-side-effects": "error",
+      },
+    },
   ],
 };
