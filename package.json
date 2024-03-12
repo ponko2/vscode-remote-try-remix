@@ -13,8 +13,8 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
     "@remix-run/dev": "^2.8.1",
     "@remix-run/testing": "^2.8.1",
     "@storybook/addon-actions": "^8.0.0",
