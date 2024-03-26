@@ -53,6 +53,9 @@ updates:
         patterns:
           - "@storybook/*"
           - storybook
+      tsconfig:
+        patterns:
+          - "@tsconfig/*"
       types:
         patterns:
           - "@types/*"
