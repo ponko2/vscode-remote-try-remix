@@ -30,7 +30,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@tsconfig/remix": "^2.0.5",
     "@tsconfig/strictest": "^2.0.5",
-    "@types/react": "^18.2.78",
+    "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "@vitest/expect": "^1.5.0",
     "autoprefixer": "^10.4.19",
