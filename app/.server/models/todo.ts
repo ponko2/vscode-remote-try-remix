@@ -1,7 +1,12 @@
 import type { Todo } from "@prisma/client";
-import prisma from "~/db.server";
+import prisma from "~/.server/database";
 
-export async function fetchTodos() {
+// Temporary workaround for https://github.com/colinhacks/zod/issues/635
+type Optional<T, K extends keyof T> = Omit<T, K> & {
+  [P in K]?: T[P] | undefined;
+};
+
+export function fetchTodos() {
   return prisma.todo.findMany();
 }
 
@@ -22,23 +27,20 @@ export async function deleteCompletedTodos() {
   });
 }
 
-export async function createTodo({ title }: { title: Todo["title"] }) {
-  if (title) {
-    await prisma.todo.create({ data: { title } });
-  }
+export function createTodo(data: Pick<Todo, "title">) {
+  return prisma.todo.create({ data });
 }
 
-export async function updateTodo({ id, title, completed }: Todo) {
+export function updateTodo({ id, title, completed }: Optional<Todo, "title">) {
   if (title) {
-    await prisma.todo.update({
+    return prisma.todo.update({
       where: { id },
       data: { title, completed },
     });
-  } else {
-    await deleteTodo({ id });
   }
+  return deleteTodo({ id });
 }
 
-export async function deleteTodo({ id }: { id: Todo["title"] }) {
-  await prisma.todo.delete({ where: { id } });
+export function deleteTodo(where: Pick<Todo, "id">) {
+  return prisma.todo.delete({ where });
 }

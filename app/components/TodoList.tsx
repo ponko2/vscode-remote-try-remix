@@ -1,12 +1,9 @@
+import type { Todo } from "@prisma/client";
 import clsx from "clsx";
 import { TodoItem } from "~/components/TodoItem";
 
 type Props = {
-  todos: {
-    id: string;
-    title: string;
-    completed: boolean;
-  }[];
+  todos: Todo[];
 };
 
 export function TodoList({ todos }: Props) {

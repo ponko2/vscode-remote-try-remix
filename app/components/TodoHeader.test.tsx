@@ -1,9 +1,11 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
+import { parseWithZod } from "@conform-to/zod";
+import { json, type ActionFunctionArgs } from "@remix-run/node";
 import { createRemixStub } from "@remix-run/testing";
 import { cleanup, render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { TodoHeader } from "~/components/TodoHeader";
+import { createTodoSchema } from "~/schemas/todo";
 
 describe("<TodoHeader/>", () => {
   // Temporary workaround for https://github.com/vitest-dev/vitest/issues/1430
@@ -18,12 +20,22 @@ describe("<TodoHeader/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return <TodoHeader completedTodosCount={0} todosCount={0} />;
+        },
+      },
+      {
+        path: "/todos",
+        async action({ request }: ActionFunctionArgs) {
+          const formData = await request.formData();
+          const submission = parseWithZod(formData, {
+            schema: createTodoSchema,
+          });
+          if (submission.status !== "success") {
+            return json(submission.reply());
+          }
+          spy(submission.value);
+          return json(submission.reply({ resetForm: true }));
         },
       },
     ]);
@@ -38,11 +50,8 @@ describe("<TodoHeader/>", () => {
 
     await user.type(input, "{Enter}");
 
-    expect(input).toHaveValue("");
-    expect(spy).toHaveBeenCalledWith({
-      _action: "create",
-      title: "foo",
-    });
+    expect(screen.getByRole("textbox")).toHaveValue("");
+    expect(spy).toHaveBeenCalledWith({ title: "foo" });
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -53,12 +62,15 @@ describe("<TodoHeader/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return <TodoHeader completedTodosCount={0} todosCount={1} />;
+        },
+      },
+      {
+        path: "/todos/toggle",
+        action() {
+          spy();
+          return null;
         },
       },
     ]);
@@ -67,7 +79,6 @@ describe("<TodoHeader/>", () => {
 
     await user.click(screen.getByRole("checkbox"));
 
-    expect(spy).toHaveBeenCalledWith({ _action: "toggleAll" });
     expect(spy).toHaveBeenCalledTimes(1);
   });
 });

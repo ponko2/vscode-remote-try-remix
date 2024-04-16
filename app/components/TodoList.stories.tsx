@@ -24,17 +24,17 @@ export const Basic: Story = {
   args: {
     todos: [
       {
-        id: "01FYH5XVSNVSXTSGB8KB858REF",
+        id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
         title: "foo",
         completed: false,
       },
       {
-        id: "01G46BYCGQ1SGVGFMEXZ0DKZAY",
+        id: "2c1e6aab-6d91-4414-bf80-3cef026284ab",
         title: "bar",
         completed: true,
       },
       {
-        id: "01G46BZM28F68BCY7EP016G1EZ",
+        id: "fb58ba5e-bf51-4e44-b79a-d3cc58ddfeb1",
         title: "baz",
         completed: false,
       },

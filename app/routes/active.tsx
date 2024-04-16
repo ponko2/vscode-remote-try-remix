@@ -8,5 +8,3 @@ export default function Active() {
     <TodoList todos={rootData?.todos.filter((todo) => !todo.completed) ?? []} />
   );
 }
-
-export { action } from "~/routes/_index";

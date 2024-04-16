@@ -18,20 +18,23 @@ describe("<TodoItem/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return (
             <TodoItem
               todo={{
-                id: "01FYH5XVSNVSXTSGB8KB858REF",
+                id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
                 title: "foo",
                 completed: false,
               }}
             />
           );
+        },
+      },
+      {
+        path: "/todos/cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
+        async action({ request }: ActionFunctionArgs) {
+          spy(Object.fromEntries(await request.formData()));
+          return null;
         },
       },
     ]);
@@ -46,10 +49,9 @@ describe("<TodoItem/>", () => {
     await user.click(document.body);
 
     expect(spy).toHaveBeenCalledWith({
-      _action: "update",
-      id: "01FYH5XVSNVSXTSGB8KB858REF",
+      _method: "put",
+      id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
       title: "bar",
-      completed: "false",
     });
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -61,20 +63,23 @@ describe("<TodoItem/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return (
             <TodoItem
               todo={{
-                id: "01FYH5XVSNVSXTSGB8KB858REF",
+                id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
                 title: "foo",
                 completed: false,
               }}
             />
           );
+        },
+      },
+      {
+        path: "/todos/cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
+        async action({ request }: ActionFunctionArgs) {
+          spy(Object.fromEntries(await request.formData()));
+          return null;
         },
       },
     ]);
@@ -88,10 +93,9 @@ describe("<TodoItem/>", () => {
     await user.type(input, "{b}{a}{r}{Enter}");
 
     expect(spy).toHaveBeenCalledWith({
-      _action: "update",
-      id: "01FYH5XVSNVSXTSGB8KB858REF",
+      _method: "put",
+      id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
       title: "bar",
-      completed: "false",
     });
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -103,20 +107,23 @@ describe("<TodoItem/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return (
             <TodoItem
               todo={{
-                id: "01FYH5XVSNVSXTSGB8KB858REF",
+                id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
                 title: "foo",
                 completed: false,
               }}
             />
           );
+        },
+      },
+      {
+        path: "/todos/cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
+        async action({ request }: ActionFunctionArgs) {
+          spy(Object.fromEntries(await request.formData()));
+          return null;
         },
       },
     ]);
@@ -130,10 +137,9 @@ describe("<TodoItem/>", () => {
     await user.type(input, "{Enter}");
 
     expect(spy).toHaveBeenCalledWith({
-      _action: "update",
-      id: "01FYH5XVSNVSXTSGB8KB858REF",
+      _method: "put",
+      id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
       title: "",
-      completed: "false",
     });
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -145,20 +151,23 @@ describe("<TodoItem/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return (
             <TodoItem
               todo={{
-                id: "01G46BYCGQ1SGVGFMEXZ0DKZAY",
+                id: "2c1e6aab-6d91-4414-bf80-3cef026284ab",
                 title: "bar",
                 completed: false,
               }}
             />
           );
+        },
+      },
+      {
+        path: "/todos/2c1e6aab-6d91-4414-bf80-3cef026284ab",
+        async action({ request }: ActionFunctionArgs) {
+          spy(Object.fromEntries(await request.formData()));
+          return null;
         },
       },
     ]);
@@ -168,8 +177,8 @@ describe("<TodoItem/>", () => {
     await user.click(screen.getByRole("button"));
 
     expect(spy).toHaveBeenCalledWith({
-      _action: "delete",
-      id: "01G46BYCGQ1SGVGFMEXZ0DKZAY",
+      _method: "delete",
+      id: "2c1e6aab-6d91-4414-bf80-3cef026284ab",
     });
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -181,20 +190,23 @@ describe("<TodoItem/>", () => {
     const RemixStub = createRemixStub([
       {
         path: "/",
-        async action({ request }: ActionFunctionArgs) {
-          spy(Object.fromEntries(await request.formData()));
-          return null;
-        },
         Component() {
           return (
             <TodoItem
               todo={{
-                id: "01G46BZM28F68BCY7EP016G1EZ",
+                id: "fb58ba5e-bf51-4e44-b79a-d3cc58ddfeb1",
                 title: "baz",
                 completed: false,
               }}
             />
           );
+        },
+      },
+      {
+        path: "/todos/fb58ba5e-bf51-4e44-b79a-d3cc58ddfeb1",
+        async action({ request }: ActionFunctionArgs) {
+          spy(Object.fromEntries(await request.formData()));
+          return null;
         },
       },
     ]);
@@ -204,10 +216,10 @@ describe("<TodoItem/>", () => {
     await user.click(screen.getByRole("checkbox"));
 
     expect(spy).toHaveBeenCalledWith({
-      _action: "update",
-      id: "01G46BZM28F68BCY7EP016G1EZ",
+      _method: "put",
+      id: "fb58ba5e-bf51-4e44-b79a-d3cc58ddfeb1",
       title: "baz",
-      completed: "true",
+      completed: "on",
     });
     expect(spy).toHaveBeenCalledTimes(1);
   });

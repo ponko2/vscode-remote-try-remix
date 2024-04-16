@@ -8,12 +8,30 @@ type Props = {
   completedTodosCount: number;
 };
 
-export function TodoFooter({
-  todosCount,
-  completedTodosCount: completedTodosCount,
-}: Props) {
+function CompletedForm() {
   const fetcher = useFetcher();
+  return (
+    <fetcher.Form
+      action="/todos/completed"
+      className="text-right"
+      method="post"
+    >
+      <TodoButton
+        className={clsx(
+          "cursor-pointer",
+          "no-underline",
+          "hover:underline",
+          "active:no-underline",
+        )}
+        type="submit"
+      >
+        Clear completed
+      </TodoButton>
+    </fetcher.Form>
+  );
+}
 
+export function TodoFooter({ todosCount, completedTodosCount }: Props) {
   if (todosCount <= 0) {
     return null;
   }
@@ -84,22 +102,7 @@ export function TodoFooter({
           </li>
         ))}
       </ul>
-      {!!completedTodosCount && (
-        <fetcher.Form className="text-right" method="post">
-          <input name="_action" type="hidden" value="clearCompleted" />
-          <TodoButton
-            className={clsx(
-              "cursor-pointer",
-              "no-underline",
-              "hover:underline",
-              "active:no-underline",
-            )}
-            type="submit"
-          >
-            Clear completed
-          </TodoButton>
-        </fetcher.Form>
-      )}
+      {!!completedTodosCount && <CompletedForm />}
     </footer>
   );
 }

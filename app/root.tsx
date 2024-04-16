@@ -1,8 +1,4 @@
-import type {
-  ActionFunctionArgs,
-  LinksFunction,
-  MetaFunction,
-} from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -13,14 +9,9 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import clsx from "clsx";
+import { fetchTodos } from "~/.server/models/todo";
 import { TodoFooter } from "~/components/TodoFooter";
 import { TodoHeader } from "~/components/TodoHeader";
-import {
-  createTodo,
-  deleteCompletedTodos,
-  fetchTodos,
-  toggleAllTodos,
-} from "~/models/todos";
 import stylesheet from "~/tailwind.css?url";
 
 export const meta: MetaFunction = () => {
@@ -100,19 +91,3 @@ export default function App() {
     </>
   );
 }
-
-export const action = async ({ request }: ActionFunctionArgs) => {
-  const formData = await request.formData();
-  const _action = formData.get("_action");
-  if (_action === "create") {
-    const title = (formData.get("title") as string).trim();
-    await createTodo({ title });
-  }
-  if (_action === "toggleAll") {
-    await toggleAllTodos();
-  }
-  if (_action === "clearCompleted") {
-    await deleteCompletedTodos();
-  }
-  return json({ ok: true });
-};

@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     todo: {
-      id: "01FYH5XVSNVSXTSGB8KB858REF",
+      id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
       title: "Hello, World!!",
       completed: false,
     },
@@ -38,7 +38,7 @@ export const Completed: Story = {
   args: {
     ...Basic.args,
     todo: {
-      id: "01FYH5XVSNVSXTSGB8KB858REF",
+      id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
       title: "Hello, World!!",
       completed: true,
     },

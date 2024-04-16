@@ -1,26 +1,101 @@
+import { getFormProps, getInputProps, useForm } from "@conform-to/react";
+import { parseWithZod } from "@conform-to/zod";
 import { useFetcher } from "@remix-run/react";
 import clsx from "clsx";
-import { useEffect, useRef } from "react";
+import type { action as createAction } from "~/routes/todos";
+import { createTodoSchema } from "~/schemas/todo";
 
 type Props = {
   todosCount: number;
   completedTodosCount: number;
 };
 
-export function TodoHeader({
-  todosCount,
-  completedTodosCount: completedTodosCount,
-}: Props) {
-  const createFormRef = useRef<HTMLFormElement>(null);
-  const createFetcher = useFetcher();
-  const toggleAllFetcher = useFetcher();
+function CreateForm() {
+  const fetcher = useFetcher<typeof createAction>();
+  const [form, fields] = useForm({
+    lastResult: fetcher.data,
+    onValidate({ formData }) {
+      return parseWithZod(formData, { schema: createTodoSchema });
+    },
+  });
+  return (
+    <fetcher.Form action="/todos" method="post" {...getFormProps(form)}>
+      <input
+        className={clsx(
+          "size-full",
+          "py-4",
+          "pl-14",
+          "pr-4",
+          "text-2xl",
+          "shadow-inner",
+          "placeholder:font-normal",
+          "placeholder:italic",
+          "placeholder:text-black/40",
+          "focus:shadow",
+          "focus:shadow-red-400",
+          "focus:outline-none",
+        )}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            fetcher.submit(event.currentTarget.form);
+          }
+        }}
+        placeholder="What needs to be done?"
+        {...getInputProps(fields.title, { type: "text" })}
+        key={fields.title.key}
+      />
+    </fetcher.Form>
+  );
+}
 
-  useEffect(() => {
-    if (createFetcher.state === "submitting") {
-      createFormRef.current?.reset();
-    }
-  }, [createFetcher.state]);
+function ToggleForm({ checked }: { checked: boolean }) {
+  const fetcher = useFetcher();
+  return (
+    <fetcher.Form action="/todos/toggle" method="post">
+      <label>
+        <input
+          checked={checked}
+          className={clsx("peer", "appearance-none")}
+          onClick={(event) => {
+            event.preventDefault();
+            fetcher.submit(event.currentTarget.form);
+          }}
+          readOnly
+          type="checkbox"
+        />
+        <span
+          className={clsx(
+            "absolute",
+            "left-0",
+            "top-0",
+            "flex",
+            "h-full",
+            "w-12",
+            "items-center",
+            "justify-center",
+            "text-[0]",
+            "before:inline-block",
+            "before:rotate-90",
+            "before:px-7",
+            "before:py-2.5",
+            "before:text-2xl",
+            "before:text-neutral-400",
+            "before:content-['❯']",
+            "peer-checked:before:text-neutral-700",
+            "peer-focus:shadow",
+            "peer-focus:shadow-red-400",
+            "peer-focus:outline-none",
+          )}
+        >
+          Mark all as complete
+        </span>
+      </label>
+    </fetcher.Form>
+  );
+}
 
+export function TodoHeader({ todosCount, completedTodosCount }: Props) {
   return (
     <header className={clsx("relative", "mt-32", "h-16")}>
       <h1
@@ -38,74 +113,9 @@ export function TodoHeader({
       >
         todos
       </h1>
-      <createFetcher.Form method="post" ref={createFormRef}>
-        <input name="_action" type="hidden" value="create" />
-        <input
-          className={clsx(
-            "size-full",
-            "py-4",
-            "pl-14",
-            "pr-4",
-            "text-2xl",
-            "shadow-inner",
-            "placeholder:font-normal",
-            "placeholder:italic",
-            "placeholder:text-black/40",
-            "focus:shadow",
-            "focus:shadow-red-400",
-            "focus:outline-none",
-          )}
-          name="title"
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              createFetcher.submit(event.currentTarget.form);
-            }
-          }}
-          placeholder="What needs to be done?"
-          type="text"
-        />
-      </createFetcher.Form>
+      <CreateForm />
       {!!todosCount && (
-        <toggleAllFetcher.Form method="post">
-          <input name="_action" type="hidden" value="toggleAll" />
-          <label>
-            <input
-              checked={completedTodosCount === todosCount}
-              className={clsx("peer", "appearance-none")}
-              onClick={(event) =>
-                toggleAllFetcher.submit(event.currentTarget.form)
-              }
-              readOnly
-              type="checkbox"
-            />
-            <span
-              className={clsx(
-                "absolute",
-                "left-0",
-                "top-0",
-                "flex",
-                "h-full",
-                "w-12",
-                "items-center",
-                "justify-center",
-                "text-[0]",
-                "before:inline-block",
-                "before:rotate-90",
-                "before:px-7",
-                "before:py-2.5",
-                "before:text-2xl",
-                "before:text-neutral-400",
-                "before:content-['❯']",
-                "peer-checked:before:text-neutral-700",
-                "peer-focus:shadow",
-                "peer-focus:shadow-red-400",
-                "peer-focus:outline-none",
-              )}
-            >
-              Mark all as complete
-            </span>
-          </label>
-        </toggleAllFetcher.Form>
+        <ToggleForm checked={completedTodosCount === todosCount} />
       )}
     </header>
   );
