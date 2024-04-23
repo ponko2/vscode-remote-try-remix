@@ -3,7 +3,7 @@
   "dependencies": {
     "@conform-to/react": "^1.1.0",
     "@conform-to/zod": "^1.1.0",
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.13.0",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
@@ -58,7 +58,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "prisma": "^5.12.1",
+    "prisma": "^5.13.0",
     "storybook": "^8.0.9",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
