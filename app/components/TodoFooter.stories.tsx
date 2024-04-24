@@ -2,7 +2,7 @@ import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { TodoFooter } from "~/components/TodoFooter";
 
-const meta: Meta<typeof TodoFooter> = {
+const meta = {
   component: TodoFooter,
   decorators: [
     (Story) => {
@@ -23,22 +23,22 @@ const meta: Meta<typeof TodoFooter> = {
       return <RemixStub />;
     },
   ],
-};
+} satisfies Meta<typeof TodoFooter>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Basic = {
   args: {
     todosCount: 1,
     completedTodosCount: 1,
   },
-};
+} satisfies Story;
 
-export const HasCompleted: Story = {
+export const HasCompleted = {
   args: {
     ...Basic.args,
     todosCount: 2,
     completedTodosCount: 1,
   },
-};
+} satisfies Story;

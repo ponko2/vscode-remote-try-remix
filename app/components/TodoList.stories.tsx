@@ -20,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Basic = {
   args: {
     todos: [
       {
@@ -40,4 +40,4 @@ export const Basic: Story = {
       },
     ],
   },
-};
+} satisfies Story;

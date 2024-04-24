@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import "../app/tailwind.css";
 
-export default {
+const preview = {
   parameters: {
     controls: {
       matchers: {
@@ -11,3 +11,5 @@ export default {
     },
   },
 } satisfies Preview;
+
+export default preview;

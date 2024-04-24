@@ -2,7 +2,7 @@ import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { TodoItem } from "~/components/TodoItem";
 
-const meta: Meta<typeof TodoItem> = {
+const meta = {
   component: TodoItem,
   decorators: [
     (Story) => {
@@ -19,12 +19,12 @@ const meta: Meta<typeof TodoItem> = {
       );
     },
   ],
-};
+} satisfies Meta<typeof TodoItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Basic = {
   args: {
     todo: {
       id: "cfc332c5-f8c2-45e1-bcdd-8e26a11c9ffc",
@@ -32,9 +32,9 @@ export const Basic: Story = {
       completed: false,
     },
   },
-};
+} satisfies Story;
 
-export const Completed: Story = {
+export const Completed = {
   args: {
     ...Basic.args,
     todo: {
@@ -43,4 +43,4 @@ export const Completed: Story = {
       completed: true,
     },
   },
-};
+} satisfies Story;
