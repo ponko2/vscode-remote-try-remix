@@ -39,3 +39,21 @@ jobs:
           fail_on_error: true
           level: error
           tool_name: Prettier
+  prisma:
+    name: Prisma
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npx --no -- prisma format
+      - run: npx --no -- prisma-case-format --file prisma/schema.prisma
+      - uses: reviewdog/action-suggester@v1
+        with:
+          fail_on_error: true
+          level: error
+          tool_name: Prisma

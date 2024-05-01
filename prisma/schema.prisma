@@ -14,4 +14,6 @@ model Todo {
   id        String  @id @default(uuid())
   title     String
   completed Boolean @default(false)
+
+  @@map("todo")
 }
