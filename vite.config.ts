@@ -10,8 +10,4 @@ installGlobals();
 
 export default defineConfig({
   plugins: [!process.env["VITEST"] && !isStorybook && remix(), tsconfigPaths()],
-  test: {
-    environment: "jsdom",
-    setupFiles: ["./vitest.setup.ts"],
-  },
 });
