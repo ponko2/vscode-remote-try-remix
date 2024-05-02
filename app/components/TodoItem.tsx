@@ -3,9 +3,9 @@ import { parseWithZod } from "@conform-to/zod";
 import type { Todo } from "@prisma/client";
 import { useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { TodoButton } from "~/components/TodoButton";
+import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
 
@@ -60,16 +60,9 @@ function UpdateForm({
         />
       ) : null}
       <input
-        className={clsx(
-          "size-full",
-          "border",
-          "border-neutral-400",
-          "px-4",
-          "py-3",
-          "shadow-inner",
-          "focus:shadow",
-          "focus:shadow-red-400",
-          "focus:outline-none",
+        className={cn(
+          "size-full border border-neutral-400 px-4 py-3 shadow-inner",
+          "focus:shadow focus:shadow-red-400 focus:outline-none",
         )}
         onBlur={(event) => {
           event.preventDefault();
@@ -123,15 +116,7 @@ function ToggleForm({
       />
       <input
         checked={todo.completed}
-        className={clsx(
-          "peer",
-          "absolute",
-          "inset-y-0",
-          "my-auto",
-          "size-12",
-          "appearance-none",
-          "outline-none",
-        )}
+        className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
         onChange={(event) => {
           event.preventDefault();
           fetcher.submit(event.currentTarget.form);
@@ -140,27 +125,10 @@ function ToggleForm({
         key={fields.completed.key}
       />
       <label
-        className={clsx(
-          "block",
-          "h-full",
-          "break-words",
-          "bg-unchecked",
-          "bg-left",
-          "bg-no-repeat",
-          "py-4",
-          "pl-14",
-          "pr-4",
-          "font-normal",
-          "leading-tight",
-          "text-neutral-700",
-          "transition-colors",
-          "duration-500",
-          "peer-checked:bg-checked",
-          "peer-checked:text-neutral-400",
-          "peer-checked:line-through",
-          "peer-focus:shadow",
-          "peer-focus:shadow-red-400",
-          "peer-focus:outline-none",
+        className={cn(
+          "block h-full break-words bg-unchecked bg-left bg-no-repeat py-4 pl-14 pr-4 font-normal leading-tight text-neutral-700 transition-colors duration-500",
+          "peer-checked:bg-checked peer-checked:text-neutral-400 peer-checked:line-through",
+          "peer-focus:shadow peer-focus:shadow-red-400 peer-focus:outline-none",
         )}
         onDoubleClick={() => onEditChange(true)}
       >
@@ -195,21 +163,9 @@ function DeleteForm({ todo }: Props) {
         key={fields.id.key}
       />
       <TodoButton
-        className={clsx(
-          "absolute",
-          "inset-y-0",
-          "right-2.5",
-          "my-auto",
-          "hidden",
-          "size-10",
-          "text-3xl",
-          "text-neutral-400",
-          "transition-colors",
-          "duration-200",
-          "ease-out",
-          "after:block",
-          "after:h-full",
-          "after:content-['×']",
+        className={cn(
+          "absolute inset-y-0 right-2.5 my-auto hidden size-10 text-3xl text-neutral-400 transition-colors duration-200 ease-out",
+          "after:block after:h-full after:content-['×']",
           "hover:text-red-400",
           "focus:text-red-400",
           "group-hover:block",
@@ -222,7 +178,7 @@ function DeleteForm({ todo }: Props) {
 
 export function TodoItem({ todo }: Props) {
   const [editing, setEditing] = useState(false);
-  const list = cva(["relative", "text-2xl", "h-16"], {
+  const list = cva("relative h-16 text-2xl", {
     variants: {
       intent: {
         primary: ["group"],

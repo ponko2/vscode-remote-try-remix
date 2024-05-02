@@ -1,10 +1,10 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "~/lib/utils";
 
 type Props = React.ComponentPropsWithoutRef<"button">;
 
-export function TodoButton({ className, children, ...restProps }: Props) {
+export function TodoButton({ className, children, ...props }: Props) {
   return (
-    <button className={twMerge("appearance-none", className)} {...restProps}>
+    <button className={cn("appearance-none", className)} {...props}>
       {children}
     </button>
   );

@@ -1,6 +1,5 @@
 import { NavLink, useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import clsx from "clsx";
 import { TodoButton } from "~/components/TodoButton";
 
 type Props = {
@@ -17,12 +16,7 @@ function CompletedForm() {
       method="post"
     >
       <TodoButton
-        className={clsx(
-          "cursor-pointer",
-          "no-underline",
-          "hover:underline",
-          "active:no-underline",
-        )}
+        className="cursor-pointer no-underline hover:underline active:no-underline"
         type="submit"
       >
         Clear completed
@@ -39,15 +33,7 @@ export function TodoFooter({ todosCount, completedTodosCount }: Props) {
   const activeCount = todosCount - completedTodosCount;
 
   const link = cva(
-    [
-      "m-1",
-      "rounded",
-      "border",
-      "px-2",
-      "py-1",
-      "no-underline",
-      "hover:border-red-400",
-    ],
+    "m-1 rounded border px-2 py-1 no-underline hover:border-red-400",
     {
       variants: {
         intent: {
@@ -59,30 +45,12 @@ export function TodoFooter({ todosCount, completedTodosCount }: Props) {
   );
 
   return (
-    <footer
-      className={clsx(
-        "isolate",
-        "grid",
-        "grid-cols-2",
-        "gap-2",
-        "px-4",
-        "py-2.5",
-        "sm:grid-cols-3",
-      )}
-    >
+    <footer className="isolate grid grid-cols-2 gap-2 px-4 py-2.5 sm:grid-cols-3">
       <span>
         <strong className="font-light">{activeCount ?? "No"}</strong>{" "}
         {activeCount === 1 ? "item" : "items"} left
       </span>
-      <ul
-        className={clsx(
-          "order-last",
-          "col-span-full",
-          "text-center",
-          "sm:order-none",
-          "sm:col-auto",
-        )}
-      >
+      <ul className="order-last col-span-full text-center sm:order-none sm:col-auto">
         {[
           { href: "/", text: "All" },
           { href: "/active", text: "Active" },
