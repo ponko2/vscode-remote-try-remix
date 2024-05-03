@@ -14,6 +14,7 @@ module.exports = {
     browser: true,
     es2024: true,
   },
+  ignorePatterns: ["!**/.client", "!**/.server"],
 
   // Base config
   extends: ["eslint:recommended", "plugin:storybook/recommended", "prettier"],
