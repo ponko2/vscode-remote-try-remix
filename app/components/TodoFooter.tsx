@@ -1,6 +1,6 @@
 import { NavLink, useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import { TodoButton } from "~/components/TodoButton";
+import TodoButton from "~/components/TodoButton";
 
 type Props = {
   todosCount: number;
@@ -25,7 +25,7 @@ function CompletedForm() {
   );
 }
 
-export function TodoFooter({ todosCount, completedTodosCount }: Props) {
+export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
   if (todosCount <= 0) {
     return null;
   }

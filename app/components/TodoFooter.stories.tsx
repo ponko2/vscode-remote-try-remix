@@ -1,7 +1,7 @@
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, fn, userEvent, within } from "@storybook/test";
-import { TodoFooter } from "~/components/TodoFooter";
+import TodoFooter from "~/components/TodoFooter";
 
 const meta = {
   component: TodoFooter,
@@ -34,6 +34,10 @@ export const Basic = {
       return <RemixStub />;
     },
   ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("0")).toBeInTheDocument();
+  },
 } satisfies Story;
 
 export const HasCompleted = {
@@ -41,6 +45,10 @@ export const HasCompleted = {
   args: {
     todosCount: 2,
     completedTodosCount: 1,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("1")).toBeInTheDocument();
   },
 } satisfies Story;
 

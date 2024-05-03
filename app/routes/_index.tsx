@@ -1,8 +1,12 @@
-import { useRouteLoaderData } from "@remix-run/react";
-import { TodoList } from "~/components/TodoList";
-import type { loader as rootLoader } from "~/root";
+import { json, useLoaderData } from "@remix-run/react";
+import { fetchTodos } from "~/.server/models/todo";
+import TodoPage from "~/components/TodoPage";
+
+export const loader = async () => {
+  return json({ todos: await fetchTodos() });
+};
 
 export default function Index() {
-  const rootData = useRouteLoaderData<typeof rootLoader>("root");
-  return <TodoList todos={rootData?.todos ?? []} />;
+  const data = useLoaderData<typeof loader>();
+  return <TodoPage todos={data.todos} type="all" />;
 }

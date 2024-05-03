@@ -4,7 +4,7 @@ import type { Todo } from "@prisma/client";
 import { useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
 import { useEffect, useRef, useState } from "react";
-import { TodoButton } from "~/components/TodoButton";
+import TodoButton from "~/components/TodoButton";
 import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
@@ -176,7 +176,7 @@ function DeleteForm({ todo }: Props) {
   );
 }
 
-export function TodoItem({ todo }: Props) {
+export default function TodoItem({ todo }: Props) {
   const [editing, setEditing] = useState(false);
   const list = cva("relative h-16 text-2xl", {
     variants: {

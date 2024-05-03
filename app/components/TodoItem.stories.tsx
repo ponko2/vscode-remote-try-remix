@@ -2,7 +2,7 @@ import type { ActionFunctionArgs } from "@remix-run/node";
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, fn, userEvent, within } from "@storybook/test";
-import { TodoItem } from "~/components/TodoItem";
+import TodoItem from "~/components/TodoItem";
 
 const meta = {
   component: TodoItem,
@@ -34,6 +34,11 @@ export const Basic = {
       );
     },
   ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("checkbox")).not.toBeChecked();
+    await expect(canvas.getByText("Hello, World!!")).toBeInTheDocument();
+  },
 } satisfies Story;
 
 export const Completed = {
@@ -44,6 +49,11 @@ export const Completed = {
       title: "Hello, World!!",
       completed: true,
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("checkbox")).toBeChecked();
+    await expect(canvas.getByText("Hello, World!!")).toBeInTheDocument();
   },
 } satisfies Story;
 

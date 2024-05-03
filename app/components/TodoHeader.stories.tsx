@@ -2,7 +2,7 @@ import type { ActionFunctionArgs } from "@remix-run/node";
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, fn, userEvent, within } from "@storybook/test";
-import { TodoHeader } from "~/components/TodoHeader";
+import TodoHeader from "~/components/TodoHeader";
 
 const meta = {
   component: TodoHeader,
@@ -27,6 +27,10 @@ export const Basic = {
       return <RemixStub />;
     },
   ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.queryByRole("checkbox")).toBeNull();
+  },
 } satisfies Story;
 
 export const HasActive = {
@@ -35,6 +39,10 @@ export const HasActive = {
     todosCount: 1,
     completedTodosCount: 0,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("checkbox")).not.toBeChecked();
+  },
 } satisfies Story;
 
 export const IsAllCompleted = {
@@ -42,6 +50,10 @@ export const IsAllCompleted = {
   args: {
     todosCount: 1,
     completedTodosCount: 1,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("checkbox")).toBeChecked();
   },
 } satisfies Story;
 
