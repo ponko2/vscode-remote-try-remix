@@ -12,20 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: true
+      - uses: pnpm/action-setup@v3
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: npm
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
-      - run: npx playwright install --with-deps
-      - run: npm run build-storybook --quiet
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - run: pnpm run generate
+      - run: pnpm run build
+      - run: pnpm test
+      - run: pnpm dlx playwright install --with-deps
+      - run: pnpm run build-storybook
       - run: >-
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
-          "npx http-server storybook-static --port 6006 --silent"
-          "npx wait-on http://127.0.0.1:6006 && npm run test-storybook -- --url=http://127.0.0.1:6006"
-      - run: npm run lint
+          pnpm dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
+          "pnpm dlx http-server storybook-static --port 6006 --silent"
+          "pnpm dlx wait-on http://127.0.0.1:6006 && pnpm run test-storybook -- --url=http://127.0.0.1:6006"
+      - run: pnpm run lint
