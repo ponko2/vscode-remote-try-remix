@@ -6,8 +6,19 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 const isStorybook = process.argv[1]?.includes("storybook");
 
-installGlobals();
+installGlobals({
+  nativeFetch: true,
+});
 
 export default defineConfig({
-  plugins: [!process.env["VITEST"] && !isStorybook && remix(), tsconfigPaths()],
+  plugins: [
+    !process.env["VITEST"] &&
+      !isStorybook &&
+      remix({
+        future: {
+          unstable_singleFetch: true,
+        },
+      }),
+    tsconfigPaths(),
+  ],
 });
