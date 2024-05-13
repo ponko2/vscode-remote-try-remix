@@ -1,11 +1,15 @@
 import { parseWithZod } from "@conform-to/zod";
-import { json, type ActionFunctionArgs } from "@remix-run/node";
+import {
+  unstable_defineAction as defineAction,
+  json,
+  type ActionFunctionArgs,
+} from "@remix-run/node";
 import * as R from "remeda";
 import { z } from "zod";
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
 
-export const action = async ({ request }: ActionFunctionArgs) => {
+export const action = defineAction(async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const submission = parseWithZod(formData, {
     schema: z.discriminatedUnion("_method", [
@@ -23,4 +27,4 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     await updateTodo(R.omit(submission.value, ["_method"]));
   }
   return json(submission.reply());
-};
+});

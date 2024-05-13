@@ -1,6 +1,7 @@
 import { NavLink, useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
 import TodoButton from "~/components/TodoButton";
+import type { action } from "~/routes/todos.completed";
 
 type Props = {
   todosCount: number;
@@ -8,7 +9,7 @@ type Props = {
 };
 
 function CompletedForm() {
-  const fetcher = useFetcher();
+  const fetcher = useFetcher<typeof action>();
   return (
     <fetcher.Form
       action="/todos/completed"
