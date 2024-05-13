@@ -3,6 +3,7 @@ import { parseWithZod } from "@conform-to/zod";
 import { useFetcher } from "@remix-run/react";
 import { cn } from "~/lib/utils";
 import type { action as createAction } from "~/routes/todos";
+import type { action as toggleAction } from "~/routes/todos.toggle";
 import { createTodoSchema } from "~/schemas/todo";
 
 type Props = {
@@ -41,7 +42,7 @@ function CreateForm() {
 }
 
 function ToggleForm({ checked }: { checked: boolean }) {
-  const fetcher = useFetcher();
+  const fetcher = useFetcher<typeof toggleAction>();
   return (
     <fetcher.Form action="/todos/toggle" method="post">
       <label>
