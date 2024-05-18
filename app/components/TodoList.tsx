@@ -1,9 +1,9 @@
 import type { Todo } from "@prisma/client";
 import TodoItem from "~/components/TodoItem";
 
-type Props = {
+interface Props {
   todos: Todo[];
-};
+}
 
 export default function TodoList({ todos }: Props) {
   return (

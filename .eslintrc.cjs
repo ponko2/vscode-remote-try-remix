@@ -165,13 +165,6 @@ module.exports = {
 
         // Disallow missing props validation in a React component definition
         "react/prop-types": "off",
-
-        // TypeScript
-        // https://typescript-eslint.io/rules/
-        // ----------------------------------------------
-
-        // Enforce type definitions to consistently use either `interface` or `type`
-        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       },
     },
     {

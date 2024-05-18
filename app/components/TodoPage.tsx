@@ -4,10 +4,10 @@ import TodoHeader from "~/components/TodoHeader";
 import TodoList from "~/components/TodoList";
 import { cn } from "~/lib/utils";
 
-type Props = {
+interface Props {
   todos: Todo[];
   type: "all" | "active" | "completed";
-};
+}
 
 export default function TodoPage({ todos, type }: Props) {
   const todosCount = todos.length;

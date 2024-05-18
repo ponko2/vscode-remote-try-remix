@@ -3,10 +3,10 @@ import { cva } from "class-variance-authority";
 import TodoButton from "~/components/TodoButton";
 import type { action } from "~/routes/todos.completed";
 
-type Props = {
+interface Props {
   todosCount: number;
   completedTodosCount: number;
-};
+}
 
 function CompletedForm() {
   const fetcher = useFetcher<typeof action>();

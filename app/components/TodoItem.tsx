@@ -9,9 +9,9 @@ import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
 
-type Props = {
+interface Props {
   todo: Todo;
-};
+}
 
 function UpdateForm({
   todo,

@@ -6,10 +6,10 @@ import type { action as createAction } from "~/routes/todos";
 import type { action as toggleAction } from "~/routes/todos.toggle";
 import { createTodoSchema } from "~/schemas/todo";
 
-type Props = {
+interface Props {
   todosCount: number;
   completedTodosCount: number;
-};
+}
 
 function CreateForm() {
   const fetcher = useFetcher<typeof createAction>();
