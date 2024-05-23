@@ -10,7 +10,7 @@
     "@remix-run/serve": "^2.9.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "isbot": "^5.1.6",
+    "isbot": "^5.1.7",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "remeda": "^1.61.0",
