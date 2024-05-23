@@ -11,8 +11,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "isbot": "^5.1.6",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "react": "19.0.0-rc-915b914b3a-20240515",
+    "react-dom": "19.0.0-rc-915b914b3a-20240515",
     "remeda": "^1.61.0",
     "tailwind-merge": "^2.3.0",
     "zod": "^3.23.8"
