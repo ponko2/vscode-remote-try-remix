@@ -23,7 +23,12 @@ module.exports = {
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "react-refresh", "jsx-a11y"],
+      plugins: [
+        "react",
+        "react-refresh",
+        "jsx-a11y",
+        "eslint-plugin-react-compiler",
+      ],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -132,6 +137,11 @@ module.exports = {
             allowConstantExport: true,
           },
         ],
+
+        // React Compiler
+        // https://react.dev/learn/react-compiler
+        // ----------------------------------------------
+        "react-compiler/react-compiler": "error",
       },
     },
 
