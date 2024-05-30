@@ -29,7 +29,7 @@
     "@storybook/react": "^8.1.4",
     "@storybook/react-vite": "^8.1.4",
     "@storybook/test": "^8.1.4",
-    "@storybook/test-runner": "^0.18.1",
+    "@storybook/test-runner": "^0.18.2",
     "@tsconfig/remix": "^2.0.5",
     "@tsconfig/strictest": "^2.0.5",
     "@types/react": "^18.3.3",
