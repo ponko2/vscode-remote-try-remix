@@ -32,10 +32,10 @@ function UpdateForm({
     }
   }, [fetcher.state]);
   useEffect(() => {
-    if (fetcher.state === "loading") {
+    if (fetcher.state === "idle" && fetcher.data?.status === "success") {
       onEditChange(false);
     }
-  }, [fetcher.state, onEditChange]);
+  }, [fetcher.state, fetcher.data, onEditChange]);
   return (
     <fetcher.Form
       action={`/todos/${todo.id}`}
