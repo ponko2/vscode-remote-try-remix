@@ -14,7 +14,7 @@ interface Props {
 function CreateForm() {
   const fetcher = useFetcher<typeof createAction>();
   const [form, fields] = useForm({
-    lastResult: fetcher.data,
+    lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: createTodoSchema });
     },

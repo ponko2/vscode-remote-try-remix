@@ -21,7 +21,7 @@ function UpdateForm({
   const fetcher = useFetcher<typeof action>();
   const [form, fields] = useForm({
     defaultValue: { title: todo.title },
-    lastResult: fetcher.data,
+    lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
@@ -88,7 +88,7 @@ function ToggleForm({
 }: Props & { onEditChange: (edit: boolean) => void }) {
   const fetcher = useFetcher<typeof action>();
   const [form, fields] = useForm({
-    lastResult: fetcher.data,
+    lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
@@ -141,7 +141,7 @@ function ToggleForm({
 function DeleteForm({ todo }: Props) {
   const fetcher = useFetcher<typeof action>();
   const [form, fields] = useForm({
-    lastResult: fetcher.data,
+    lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: deleteTodoSchema });
     },
