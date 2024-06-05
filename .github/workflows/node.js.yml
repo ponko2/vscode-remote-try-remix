@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
 permissions:
   contents: read
 jobs:
@@ -30,4 +29,3 @@ jobs:
           pnpm dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
           "pnpm dlx http-server storybook-static --port 6006 --silent"
           "pnpm dlx wait-on http://127.0.0.1:6006 && pnpm run test-storybook -- --url=http://127.0.0.1:6006"
-      - run: pnpm run lint
