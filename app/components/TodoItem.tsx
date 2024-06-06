@@ -64,10 +64,7 @@ function UpdateForm({
           "size-full border border-neutral-400 px-4 py-3 shadow-inner",
           "focus:shadow focus:shadow-red-400 focus:outline-none",
         )}
-        onBlur={(event) => {
-          event.preventDefault();
-          fetcher.submit(event.currentTarget.form);
-        }}
+        onBlur={(event) => fetcher.submit(event.currentTarget.form)}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             event.preventDefault();
