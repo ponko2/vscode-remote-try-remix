@@ -1,4 +1,3 @@
-import type { SubmissionResult } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import {
   unstable_defineAction as defineAction,
@@ -15,8 +14,5 @@ export const action = defineAction(async ({ request }: ActionFunctionArgs) => {
     return json(submission.reply());
   }
   await createTodo(submission.value);
-  return json({
-    status: "success",
-    ...submission.reply({ resetForm: true }),
-  } satisfies SubmissionResult);
+  return json(submission.reply());
 });

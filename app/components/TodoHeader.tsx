@@ -1,6 +1,7 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { useFetcher } from "@remix-run/react";
+import { useEffect, useRef } from "react";
 import { cn } from "~/lib/utils";
 import type { action as createAction } from "~/routes/todos";
 import type { action as toggleAction } from "~/routes/todos.toggle";
@@ -13,14 +14,25 @@ interface Props {
 
 function CreateForm() {
   const fetcher = useFetcher<typeof createAction>();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, fields] = useForm({
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: createTodoSchema });
     },
   });
+  useEffect(() => {
+    if (fetcher.state === "idle" && fetcher.data?.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [fetcher.state, fetcher.data]);
   return (
-    <fetcher.Form action="/todos" method="post" {...getFormProps(form)}>
+    <fetcher.Form
+      action="/todos"
+      method="post"
+      ref={formRef}
+      {...getFormProps(form)}
+    >
       <input
         className={cn(
           "size-full py-4 pl-14 pr-4 text-2xl shadow-inner",
