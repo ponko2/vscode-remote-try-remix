@@ -3,7 +3,7 @@ import { parseWithZod } from "@conform-to/zod";
 import type { Todo } from "@prisma/client";
 import { useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import TodoButton from "~/components/TodoButton";
 import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
@@ -17,7 +17,6 @@ function UpdateForm({
   todo,
   onEditChange,
 }: Props & { onEditChange: (edit: boolean) => void }) {
-  const titleRef = useRef<HTMLInputElement>(null);
   const fetcher = useFetcher<typeof action>();
   const [form, fields] = useForm({
     defaultValue: { title: todo.title },
@@ -26,11 +25,6 @@ function UpdateForm({
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
   });
-  useEffect(() => {
-    if (fetcher.state === "idle") {
-      titleRef.current?.focus();
-    }
-  }, [fetcher.state]);
   useEffect(() => {
     if (fetcher.state === "idle" && fetcher.data?.status === "success") {
       onEditChange(false);
@@ -60,6 +54,8 @@ function UpdateForm({
         />
       ) : null}
       <input
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus
         className={cn(
           "size-full border border-neutral-400 px-4 py-3 shadow-inner",
           "focus:shadow focus:shadow-red-400 focus:outline-none",
@@ -71,7 +67,6 @@ function UpdateForm({
             fetcher.submit(event.currentTarget.form);
           }
         }}
-        ref={titleRef}
         {...getInputProps(fields.title, { type: "text" })}
         key={fields.title.key}
       />
