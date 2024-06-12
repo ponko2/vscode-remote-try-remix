@@ -30,7 +30,7 @@ function CreateForm() {
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             event.preventDefault();
-            fetcher.submit(event.currentTarget.form);
+            event.currentTarget.form?.requestSubmit();
           }
         }}
         placeholder="What needs to be done?"
@@ -49,7 +49,7 @@ function ToggleForm({ checked }: { checked: boolean }) {
         <input
           checked={checked}
           className="peer appearance-none"
-          onClick={(event) => fetcher.submit(event.currentTarget.form)}
+          onClick={(event) => event.currentTarget.form?.requestSubmit()}
           readOnly
           type="checkbox"
         />

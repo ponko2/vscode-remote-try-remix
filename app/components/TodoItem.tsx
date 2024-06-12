@@ -60,11 +60,11 @@ function UpdateForm({
           "size-full border border-neutral-400 px-4 py-3 shadow-inner",
           "focus:shadow focus:shadow-red-400 focus:outline-none",
         )}
-        onBlur={(event) => fetcher.submit(event.currentTarget.form)}
+        onBlur={(event) => event.currentTarget.form?.requestSubmit()}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             event.preventDefault();
-            fetcher.submit(event.currentTarget.form);
+            event.currentTarget.form?.requestSubmit();
           }
         }}
         {...getInputProps(fields.title, { type: "text" })}
@@ -111,7 +111,7 @@ function ToggleForm({
         className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
         onChange={(event) => {
           event.preventDefault();
-          fetcher.submit(event.currentTarget.form);
+          event.currentTarget.form?.requestSubmit();
         }}
         {...getInputProps(fields.completed, { type: "checkbox", value: false })}
         key={fields.completed.key}
