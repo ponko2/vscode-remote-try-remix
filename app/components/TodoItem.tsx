@@ -3,7 +3,7 @@ import { parseWithZod } from "@conform-to/zod";
 import type { Todo } from "@prisma/client";
 import { useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import TodoButton from "~/components/TodoButton";
 import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
@@ -22,16 +22,13 @@ function UpdateForm({
   const [form, fields] = useForm({
     defaultValue: { title: todo.title },
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
+    onSubmit() {
+      onEditChange(false);
+    },
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
   });
-  useEffect(() => {
-    if (fetcher.state === "idle" && fetcher.data?.status === "success") {
-      formRef.current?.reset();
-      onEditChange(false);
-    }
-  }, [fetcher.state, fetcher.data, onEditChange]);
   return (
     <fetcher.Form
       action={`/todos/${todo.id}`}
