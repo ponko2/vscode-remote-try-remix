@@ -156,6 +156,9 @@ importers:
       npm-run-all2:
         specifier: ^6.2.0
         version: 6.2.0
+      playwright:
+        specifier: ^1.45.0
+        version: 1.45.0
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
