@@ -72,6 +72,11 @@
     "node": ">=20.0.0"
   },
   "packageManager": "pnpm@9.6.0",
+  "pnpm": {
+    "patchedDependencies": {
+      "@conform-to/dom@1.1.5": "patches/@conform-to__dom@1.1.5.patch"
+    }
+  },
   "private": true,
   "scripts": {
     "build": "remix vite:build",

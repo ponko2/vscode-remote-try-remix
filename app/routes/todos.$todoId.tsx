@@ -1,5 +1,5 @@
 import { parseWithZod } from "@conform-to/zod";
-import { unstable_defineAction as defineAction, json } from "@remix-run/node";
+import { unstable_defineAction as defineAction } from "@remix-run/node";
 import * as R from "remeda";
 import { z } from "zod";
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
@@ -14,7 +14,7 @@ export const action = defineAction(async ({ request }) => {
     ]),
   });
   if (submission.status !== "success") {
-    return json(submission.reply());
+    return submission.reply();
   }
   if (submission.value._method === "delete") {
     await deleteTodo(R.omit(submission.value, ["_method"]));
@@ -22,5 +22,5 @@ export const action = defineAction(async ({ request }) => {
   if (submission.value._method === "put") {
     await updateTodo(R.omit(submission.value, ["_method"]));
   }
-  return json(submission.reply());
+  return submission.reply();
 });
