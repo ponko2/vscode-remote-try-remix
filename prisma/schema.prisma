@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Todo {
-  id        String  @id @default(uuid())
+  id        String  @id @default(uuid(7))
   title     String
   completed Boolean @default(false)
 
