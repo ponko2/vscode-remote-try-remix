@@ -106,8 +106,8 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.41)
       babel-plugin-react-compiler:
-        specifier: 0.0.0-experimental-48eb8f4-20240822
-        version: 0.0.0-experimental-48eb8f4-20240822
+        specifier: 0.0.0-experimental-9e9694c-20240827
+        version: 0.0.0-experimental-9e9694c-20240827
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -127,8 +127,8 @@ importers:
         specifier: ^7.35.0
         version: 7.35.0(eslint@8.57.0)
       eslint-plugin-react-compiler:
-        specifier: 0.0.0-experimental-72f06b2-20240822
-        version: 0.0.0-experimental-72f06b2-20240822(eslint@8.57.0)
+        specifier: 0.0.0-experimental-3f2f4f0-20240827
+        version: 0.0.0-experimental-3f2f4f0-20240827(eslint@8.57.0)
       eslint-plugin-react-hooks:
         specifier: ^4.6.2
         version: 4.6.2(eslint@8.57.0)
@@ -2723,8 +2723,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
 
-  babel-plugin-react-compiler@0.0.0-experimental-48eb8f4-20240822:
-    resolution: {integrity: sha512-yMkqwmqBtn6R8sY5b6I4aEQxzaX8sDHLa2JnU44wmZT6UFKh6GqPxtHw1mPNvxEadIXeyClT+JEZda/cA//F2g==}
+  babel-plugin-react-compiler@0.0.0-experimental-9e9694c-20240827:
+    resolution: {integrity: sha512-QjUkS9KM9nepXi6m/ktXrN9w799h50UAq67Oe4iXTzMfP1dK+ycwrWmho2sLkLZB6W9rNFmIdcbsh3s8n6qnLA==}
 
   babel-preset-current-node-syntax@1.0.1:
     resolution: {integrity: sha512-M7LQ0bxarkxQoN+vz5aJPsLBn77n8QgTFmo8WK0/44auK2xlCXrYcUxHFxgU7qW5Yzw/CjmLRK2uJzaCd7LvqQ==}
@@ -3587,8 +3587,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-compiler@0.0.0-experimental-72f06b2-20240822:
-    resolution: {integrity: sha512-tmcPYVSeSCktvNgGNE/CKY5Gn29wMMSdHMb/IglSTWoddtDZ5YhAoGgiTAerKN+rmB0bBtjFSRjh1ZjmgH+mhQ==}
+  eslint-plugin-react-compiler@0.0.0-experimental-3f2f4f0-20240827:
+    resolution: {integrity: sha512-kGHan/+iRB641et/mJob5E7IvcO39gPIpVXw1fANBlaqRgiTMuFDMbL7K8KFNaG1+hOjlCHhjlUux7pJOgCtoQ==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
@@ -7372,7 +7372,7 @@ snapshots:
   '@babel/helper-builder-binary-assignment-operator-visitor@7.24.7':
     dependencies:
       '@babel/traverse': 7.25.4
-      '@babel/types': 7.25.2
+      '@babel/types': 7.25.4
     transitivePeerDependencies:
       - supports-color
 
@@ -7584,7 +7584,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.25.0
       '@babel/traverse': 7.25.4
-      '@babel/types': 7.25.2
+      '@babel/types': 7.25.4
     transitivePeerDependencies:
       - supports-color
 
@@ -7596,7 +7596,7 @@ snapshots:
   '@babel/helpers@7.24.8':
     dependencies:
       '@babel/template': 7.24.7
-      '@babel/types': 7.24.9
+      '@babel/types': 7.25.4
 
   '@babel/helpers@7.25.0':
     dependencies:
@@ -7678,6 +7678,11 @@ snapshots:
   '@babel/plugin-syntax-bigint@7.8.3(@babel/core@7.24.9)':
     dependencies:
       '@babel/core': 7.24.9
+      '@babel/helper-plugin-utils': 7.24.8
+
+  '@babel/plugin-syntax-bigint@7.8.3(@babel/core@7.25.2)':
+    dependencies:
+      '@babel/core': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
 
   '@babel/plugin-syntax-class-properties@7.12.13(@babel/core@7.24.9)':
@@ -8310,7 +8315,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
-      '@babel/types': 7.25.2
+      '@babel/types': 7.25.4
       esutils: 2.0.3
 
   '@babel/preset-typescript@7.24.7(@babel/core@7.25.2)':
@@ -10594,13 +10599,13 @@ snapshots:
     dependencies:
       '@babel/core': 7.25.2
 
-  babel-jest@29.7.0(@babel/core@7.24.9):
+  babel-jest@29.7.0(@babel/core@7.25.2):
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@jest/transform': 29.7.0
       '@types/babel__core': 7.20.5
       babel-plugin-istanbul: 6.1.1
-      babel-preset-jest: 29.6.3(@babel/core@7.24.9)
+      babel-preset-jest: 29.6.3(@babel/core@7.25.2)
       chalk: 4.1.2
       graceful-fs: 4.2.11
       slash: 3.0.0
@@ -10620,7 +10625,7 @@ snapshots:
   babel-plugin-jest-hoist@29.6.3:
     dependencies:
       '@babel/template': 7.24.7
-      '@babel/types': 7.24.9
+      '@babel/types': 7.25.4
       '@types/babel__core': 7.20.5
       '@types/babel__traverse': 7.20.6
 
@@ -10648,7 +10653,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-plugin-react-compiler@0.0.0-experimental-48eb8f4-20240822:
+  babel-plugin-react-compiler@0.0.0-experimental-9e9694c-20240827:
     dependencies:
       '@babel/generator': 7.2.0
       '@babel/types': 7.25.4
@@ -10674,11 +10679,27 @@ snapshots:
       '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.24.9)
       '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.24.9)
 
-  babel-preset-jest@29.6.3(@babel/core@7.24.9):
+  babel-preset-current-node-syntax@1.0.1(@babel/core@7.25.2):
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
+      '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.25.2)
+      '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.25.2)
+      '@babel/plugin-syntax-import-meta': 7.10.4(@babel/core@7.25.2)
+      '@babel/plugin-syntax-json-strings': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-logical-assignment-operators': 7.10.4(@babel/core@7.25.2)
+      '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-numeric-separator': 7.10.4(@babel/core@7.25.2)
+      '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-optional-catch-binding': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.25.2)
+      '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.25.2)
+
+  babel-preset-jest@29.6.3(@babel/core@7.25.2):
+    dependencies:
+      '@babel/core': 7.25.2
       babel-plugin-jest-hoist: 29.6.3
-      babel-preset-current-node-syntax: 1.0.1(@babel/core@7.24.9)
+      babel-preset-current-node-syntax: 1.0.1(@babel/core@7.25.2)
 
   bail@2.0.2: {}
 
@@ -11665,7 +11686,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-compiler@0.0.0-experimental-72f06b2-20240822(eslint@8.57.0):
+  eslint-plugin-react-compiler@0.0.0-experimental-3f2f4f0-20240827(eslint@8.57.0):
     dependencies:
       '@babel/core': 7.25.2
       '@babel/parser': 7.25.4
@@ -12694,7 +12715,7 @@ snapshots:
 
   istanbul-lib-instrument@5.2.1:
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@babel/parser': 7.25.4
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
@@ -12704,7 +12725,7 @@ snapshots:
 
   istanbul-lib-instrument@6.0.3:
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@babel/parser': 7.25.4
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
@@ -12809,10 +12830,10 @@ snapshots:
 
   jest-config@29.7.0(@types/node@22.2.0):
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@jest/test-sequencer': 29.7.0
       '@jest/types': 29.6.3
-      babel-jest: 29.7.0(@babel/core@7.24.9)
+      babel-jest: 29.7.0(@babel/core@7.25.2)
       chalk: 4.1.2
       ci-info: 3.9.0
       deepmerge: 4.3.1
