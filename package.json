@@ -32,7 +32,7 @@
     "@storybook/test-runner": "^0.19.1",
     "@tsconfig/remix": "^2.0.5",
     "@tsconfig/strictest": "^2.0.5",
-    "@types/react": "^18.3.4",
+    "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
@@ -70,7 +70,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@9.7.0",
+  "packageManager": "pnpm@9.9.0",
   "private": true,
   "scripts": {
     "build": "remix vite:build",
