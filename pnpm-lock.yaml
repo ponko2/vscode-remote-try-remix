@@ -106,8 +106,8 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.45)
       babel-plugin-react-compiler:
-        specifier: 0.0.0-experimental-4e0eccf-20240903
-        version: 0.0.0-experimental-4e0eccf-20240903
+        specifier: 0.0.0-experimental-7449567-20240904
+        version: 0.0.0-experimental-7449567-20240904
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -127,8 +127,8 @@ importers:
         specifier: ^7.35.2
         version: 7.35.2(eslint@8.57.0)
       eslint-plugin-react-compiler:
-        specifier: 0.0.0-experimental-b8a7b48-20240903
-        version: 0.0.0-experimental-b8a7b48-20240903(eslint@8.57.0)
+        specifier: 0.0.0-experimental-8d8bd53-20240904
+        version: 0.0.0-experimental-8d8bd53-20240904(eslint@8.57.0)
       eslint-plugin-react-hooks:
         specifier: ^4.6.2
         version: 4.6.2(eslint@8.57.0)
@@ -2730,8 +2730,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
 
-  babel-plugin-react-compiler@0.0.0-experimental-4e0eccf-20240903:
-    resolution: {integrity: sha512-4PSoBfsZrxtodjG1aIvU+yRIHEXfmDn980pOeUvf/9yN5GpZOBXiijRHheIVY8MeB7T9KHyV45F9ae4xx5ovwg==}
+  babel-plugin-react-compiler@0.0.0-experimental-7449567-20240904:
+    resolution: {integrity: sha512-IqCWVU3ItO/BOTJA9gM+FNLwe8CGnCky5ZC3EULqMKkG7NVr/9XzUOApj8xtmQIM9WuZzzqRaJMXmW88xF+0Tw==}
 
   babel-preset-current-node-syntax@1.0.1:
     resolution: {integrity: sha512-M7LQ0bxarkxQoN+vz5aJPsLBn77n8QgTFmo8WK0/44auK2xlCXrYcUxHFxgU7qW5Yzw/CjmLRK2uJzaCd7LvqQ==}
@@ -3615,8 +3615,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-react-compiler@0.0.0-experimental-b8a7b48-20240903:
-    resolution: {integrity: sha512-U6fQARYBt6pUKHf/v5m6J3oRfHg32daE/l5YMyEVKjgdTwkpg5bw0ci+IVSmC8hY8YLFURDR+1ztq8RKhTCdXA==}
+  eslint-plugin-react-compiler@0.0.0-experimental-8d8bd53-20240904:
+    resolution: {integrity: sha512-cNX0NrvzY7cEg5LOGJrRjM4pxzUhav0C1RZqwwuMxki1jUggLhE0DFD/KF4T1pZ+FwWLdRRDKdtK4S4OfK4I6g==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
@@ -10690,7 +10690,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-plugin-react-compiler@0.0.0-experimental-4e0eccf-20240903:
+  babel-plugin-react-compiler@0.0.0-experimental-7449567-20240904:
     dependencies:
       '@babel/generator': 7.2.0
       '@babel/types': 7.25.6
@@ -11718,7 +11718,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-compiler@0.0.0-experimental-b8a7b48-20240903(eslint@8.57.0):
+  eslint-plugin-react-compiler@0.0.0-experimental-8d8bd53-20240904(eslint@8.57.0):
     dependencies:
       '@babel/core': 7.25.2
       '@babel/parser': 7.25.6
