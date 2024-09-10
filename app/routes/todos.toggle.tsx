@@ -1,7 +1,6 @@
-import { unstable_defineAction as defineAction } from "@remix-run/node";
 import { toggleAllTodos } from "~/.server/models/todo";
 
-export const action = defineAction(async () => {
+export async function action() {
   await toggleAllTodos();
   return null;
-});
+}

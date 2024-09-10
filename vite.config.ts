@@ -6,6 +6,12 @@ import { defineConfig } from "vite";
 import babel from "vite-plugin-babel";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+declare module "@remix-run/server-runtime" {
+  interface Future {
+    unstable_singleFetch: true;
+  }
+}
+
 const isVitest = process.env["VITEST"] === "true";
 const isStorybook = process.argv[1]?.includes("storybook");
 
@@ -19,6 +25,7 @@ export default defineConfig({
       remix({
         future: {
           unstable_lazyRouteDiscovery: true,
+          unstable_optimizeDeps: true,
           unstable_singleFetch: true,
           v3_fetcherPersist: true,
           v3_relativeSplatPath: true,
@@ -29,14 +36,16 @@ export default defineConfig({
       babel({
         filter: /\.[jt]sx?$/,
         babelConfig: {
+          compact: false,
           presets: ["@babel/preset-typescript"],
-          plugins: [["babel-plugin-react-compiler", {}]],
+          plugins: ["babel-plugin-react-compiler"],
         },
       }),
     (isVitest || isStorybook) &&
       react({
         babel: {
-          plugins: [["babel-plugin-react-compiler", {}]],
+          compact: false,
+          plugins: ["babel-plugin-react-compiler"],
         },
       }),
     tsconfigPaths(),

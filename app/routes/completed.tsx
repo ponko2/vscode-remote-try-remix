@@ -1,11 +1,10 @@
-import { unstable_defineLoader as defineLoader } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { fetchTodos } from "~/.server/models/todo";
 import TodoPage from "~/components/TodoPage";
 
-export const loader = defineLoader(async () => {
+export async function loader() {
   return { todos: await fetchTodos() };
-});
+}
 
 export default function Completed() {
   const data = useLoaderData<typeof loader>();
