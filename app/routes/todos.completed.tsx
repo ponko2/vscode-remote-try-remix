@@ -1,7 +1,6 @@
-import { unstable_defineAction as defineAction } from "@remix-run/node";
 import { deleteCompletedTodos } from "~/.server/models/todo";
 
-export const action = defineAction(async () => {
+export async function action() {
   await deleteCompletedTodos();
   return null;
-});
+}
