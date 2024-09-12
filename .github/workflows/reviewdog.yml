@@ -8,7 +8,7 @@ permissions:
   pull-requests: write
 jobs:
   eslint:
-    name: ESlint
+    name: ESLint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
