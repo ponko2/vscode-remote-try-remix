@@ -1,7 +1,7 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent, within } from "@storybook/test";
+import { expect, fn, userEvent } from "@storybook/test";
 import TodoItem from "~/components/TodoItem";
 
 const meta = {
@@ -34,8 +34,7 @@ export const Basic = {
       );
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByRole("checkbox")).not.toBeChecked();
     await expect(canvas.getByText("Hello, World!!")).toBeInTheDocument();
   },
@@ -50,8 +49,7 @@ export const Completed = {
       completed: true,
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByRole("checkbox")).toBeChecked();
     await expect(canvas.getByText("Hello, World!!")).toBeInTheDocument();
   },
@@ -89,8 +87,7 @@ export const EditViaFocusOut = (() => {
         );
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -138,8 +135,7 @@ export const EditViaEnterKey = (() => {
         );
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -186,8 +182,7 @@ export const DeleteViaEmptyEdit = (() => {
         );
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -234,8 +229,7 @@ export const DeleteViaDeleteButton = (() => {
         );
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.hover(canvas.getByRole("listitem"));
       await userEvent.click(canvas.getByRole("button", { hidden: true }));
       await expect(spy).toHaveBeenCalledTimes(1);
@@ -279,8 +273,7 @@ export const Toggle = (() => {
         );
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.click(canvas.getByRole("checkbox"));
       await expect(spy).toHaveBeenCalledTimes(1);
       await expect(spy).toHaveBeenCalledWith({

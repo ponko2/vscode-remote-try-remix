@@ -1,6 +1,6 @@
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, within } from "@storybook/test";
+import { expect } from "@storybook/test";
 import TodoPage from "~/components/TodoPage";
 
 const meta = {
@@ -45,8 +45,7 @@ export const Basic = {
     ],
     type: "all",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByText("foo")).toBeInTheDocument();
     await expect(canvas.getByText("bar")).toBeInTheDocument();
   },
@@ -57,8 +56,7 @@ export const Active = {
     ...Basic.args,
     type: "active",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByText("foo")).toBeInTheDocument();
     await expect(canvas.queryByText("bar")).toBeNull();
   },
@@ -69,8 +67,7 @@ export const Completed = {
     ...Basic.args,
     type: "completed",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.queryByText("foo")).toBeNull();
     await expect(canvas.getByText("bar")).toBeInTheDocument();
   },
