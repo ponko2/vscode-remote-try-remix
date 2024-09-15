@@ -109,10 +109,7 @@ function ToggleForm({
       <input
         checked={todo.completed}
         className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
-        onChange={(event) => {
-          event.preventDefault();
-          event.currentTarget.form?.requestSubmit();
-        }}
+        onChange={(event) => event.currentTarget.form?.requestSubmit()}
         {...getInputProps(fields.completed, { type: "checkbox", value: false })}
         key={fields.completed.key}
       />
