@@ -1,6 +1,5 @@
 import { parseWithZod } from "@conform-to/zod";
 import type { ActionFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import * as R from "remeda";
 import { z } from "zod";
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
@@ -15,7 +14,7 @@ export async function action({ request }: ActionFunctionArgs) {
     ]),
   });
   if (submission.status !== "success") {
-    return json(submission.reply());
+    return submission.reply();
   }
   if (submission.value._method === "delete") {
     await deleteTodo(R.omit(submission.value, ["_method"]));
@@ -23,5 +22,5 @@ export async function action({ request }: ActionFunctionArgs) {
   if (submission.value._method === "put") {
     await updateTodo(R.omit(submission.value, ["_method"]));
   }
-  return json(submission.reply());
+  return submission.reply();
 }

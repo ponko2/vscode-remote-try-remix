@@ -22,7 +22,7 @@ function CreateForm() {
     },
   });
   useEffect(() => {
-    if (fetcher.state === "idle" && fetcher.data?.status === "success") {
+    if (fetcher.state === "idle" && fetcher.data?.status !== "error") {
       formRef.current?.reset();
     }
   }, [fetcher.state, fetcher.data]);
@@ -47,7 +47,6 @@ function CreateForm() {
         }}
         placeholder="What needs to be done?"
         {...getInputProps(fields.title, { type: "text" })}
-        key={fields.title.key}
       />
     </fetcher.Form>
   );

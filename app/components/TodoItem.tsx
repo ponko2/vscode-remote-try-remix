@@ -3,7 +3,7 @@ import { parseWithZod } from "@conform-to/zod";
 import type { Todo } from "@prisma/client";
 import { useFetcher } from "@remix-run/react";
 import { cva } from "class-variance-authority";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TodoButton from "~/components/TodoButton";
 import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
@@ -20,7 +20,11 @@ function UpdateForm({
   const fetcher = useFetcher<typeof action>();
   const formRef = useRef<HTMLFormElement>(null);
   const [form, fields] = useForm({
-    defaultValue: { title: todo.title },
+    defaultValue: {
+      ...todo,
+      _method: "put",
+      completed: todo.completed ? "on" : null,
+    },
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onSubmit() {
       onEditChange(false);
@@ -29,6 +33,11 @@ function UpdateForm({
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
   });
+  useEffect(() => {
+    if (fetcher.state === "idle" && fetcher.data?.status !== "error") {
+      formRef.current?.reset();
+    }
+  }, [fetcher.state, fetcher.data, todo]);
   return (
     <fetcher.Form
       action={`/todos/${todo.id}`}
@@ -36,22 +45,10 @@ function UpdateForm({
       ref={formRef}
       {...getFormProps(form)}
     >
-      <input
-        value="put"
-        {...getInputProps(fields._method, { type: "hidden", value: false })}
-        key={fields._method.key}
-      />
-      <input
-        value={todo.id}
-        {...getInputProps(fields.id, { type: "hidden", value: false })}
-        key={fields.id.key}
-      />
+      <input {...getInputProps(fields._method, { type: "hidden" })} />
+      <input {...getInputProps(fields.id, { type: "hidden" })} />
       {todo.completed ? (
-        <input
-          value="on"
-          {...getInputProps(fields.completed, { type: "hidden", value: false })}
-          key={fields.completed.key}
-        />
+        <input {...getInputProps(fields.completed, { type: "hidden" })} />
       ) : null}
       <input
         // eslint-disable-next-line jsx-a11y/no-autofocus
@@ -68,7 +65,6 @@ function UpdateForm({
           }
         }}
         {...getInputProps(fields.title, { type: "text" })}
-        key={fields.title.key}
       />
     </fetcher.Form>
   );
@@ -79,39 +75,37 @@ function ToggleForm({
   onEditChange,
 }: Props & { onEditChange: (edit: boolean) => void }) {
   const fetcher = useFetcher<typeof action>();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, fields] = useForm({
+    defaultValue: {
+      ...todo,
+      _method: "put",
+      completed: todo.completed ? "on" : null,
+    },
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: updateTodoSchema });
     },
   });
+  useEffect(() => {
+    if (fetcher.state === "idle" && fetcher.data?.status !== "error") {
+      formRef.current?.reset();
+    }
+  }, [fetcher.state, fetcher.data, todo]);
   return (
     <fetcher.Form
       action={`/todos/${todo.id}`}
       method="post"
+      ref={formRef}
       {...getFormProps(form)}
     >
+      <input {...getInputProps(fields._method, { type: "hidden" })} />
+      <input {...getInputProps(fields.id, { type: "hidden" })} />
+      <input {...getInputProps(fields.title, { type: "hidden" })} />
       <input
-        value="put"
-        {...getInputProps(fields._method, { type: "hidden", value: false })}
-        key={fields._method.key}
-      />
-      <input
-        value={todo.id}
-        {...getInputProps(fields.id, { type: "hidden", value: false })}
-        key={fields.id.key}
-      />
-      <input
-        value={todo.title}
-        {...getInputProps(fields.title, { type: "hidden", value: false })}
-        key={fields.title.key}
-      />
-      <input
-        checked={todo.completed}
         className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
         onChange={(event) => event.currentTarget.form?.requestSubmit()}
-        {...getInputProps(fields.completed, { type: "checkbox", value: false })}
-        key={fields.completed.key}
+        {...getInputProps(fields.completed, { type: "checkbox" })}
       />
       <label
         className={cn(
@@ -129,28 +123,28 @@ function ToggleForm({
 
 function DeleteForm({ todo }: Props) {
   const fetcher = useFetcher<typeof action>();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, fields] = useForm({
+    defaultValue: { ...todo, _method: "delete" },
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: deleteTodoSchema });
     },
   });
+  useEffect(() => {
+    if (fetcher.state === "idle" && fetcher.data?.status !== "error") {
+      formRef.current?.reset();
+    }
+  }, [fetcher.state, fetcher.data, todo]);
   return (
     <fetcher.Form
       action={`/todos/${todo.id}`}
       method="post"
+      ref={formRef}
       {...getFormProps(form)}
     >
-      <input
-        value="delete"
-        {...getInputProps(fields._method, { type: "hidden", value: false })}
-        key={fields._method.key}
-      />
-      <input
-        value={todo.id}
-        {...getInputProps(fields.id, { type: "hidden", value: false })}
-        key={fields.id.key}
-      />
+      <input {...getInputProps(fields._method, { type: "hidden" })} />
+      <input {...getInputProps(fields.id, { type: "hidden" })} />
       <TodoButton
         className={cn(
           "absolute inset-y-0 right-2.5 my-auto hidden size-10 text-3xl text-neutral-400 transition-colors duration-200 ease-out",
