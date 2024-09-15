@@ -1,6 +1,6 @@
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, within } from "@storybook/test";
+import { expect } from "@storybook/test";
 import TodoList from "~/components/TodoList";
 
 const meta = {
@@ -36,8 +36,7 @@ export const Basic = {
       },
     ],
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const checkboxes = canvas.getAllByRole("checkbox");
     await expect(checkboxes).toHaveLength(2);
     await expect(checkboxes[0]).not.toBeChecked();

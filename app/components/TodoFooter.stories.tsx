@@ -1,6 +1,6 @@
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent, within } from "@storybook/test";
+import { expect, fn, userEvent } from "@storybook/test";
 import TodoFooter from "~/components/TodoFooter";
 
 const meta = {
@@ -34,8 +34,7 @@ export const Basic = {
       return <RemixStub />;
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByText("0")).toBeInTheDocument();
   },
 } satisfies Story;
@@ -46,8 +45,7 @@ export const HasCompleted = {
     todosCount: 2,
     completedTodosCount: 1,
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByText("1")).toBeInTheDocument();
   },
 } satisfies Story;
@@ -76,8 +74,7 @@ export const ShowAll = {
       return <RemixStub initialEntries={["/active"]} />;
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const button = await canvas.findByText("All");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -110,8 +107,7 @@ export const ShowActive = {
       return <RemixStub initialEntries={["/"]} />;
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const button = await canvas.findByText("Active");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -144,8 +140,7 @@ export const ShowCompleted = {
       return <RemixStub initialEntries={["/"]} />;
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     const button = await canvas.findByText("Completed");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -187,8 +182,7 @@ export const ClearCompleted = (() => {
         return <RemixStub />;
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.click(await canvas.findByText("Clear completed"));
       await expect(spy).toHaveBeenCalledTimes(1);
     },

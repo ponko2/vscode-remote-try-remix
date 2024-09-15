@@ -1,7 +1,7 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent, within } from "@storybook/test";
+import { expect, fn, userEvent } from "@storybook/test";
 import TodoHeader from "~/components/TodoHeader";
 
 const meta = {
@@ -27,8 +27,7 @@ export const Basic = {
       return <RemixStub />;
     },
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.queryByRole("checkbox")).toBeNull();
   },
 } satisfies Story;
@@ -39,8 +38,7 @@ export const HasActive = {
     todosCount: 1,
     completedTodosCount: 0,
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByRole("checkbox")).not.toBeChecked();
   },
 } satisfies Story;
@@ -51,8 +49,7 @@ export const IsAllCompleted = {
     todosCount: 1,
     completedTodosCount: 1,
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  play: async ({ canvas }) => {
     await expect(canvas.getByRole("checkbox")).toBeChecked();
   },
 } satisfies Story;
@@ -82,8 +79,7 @@ export const Add = (() => {
         return <RemixStub />;
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       const input = canvas.getByRole("textbox");
       await userEvent.type(input, "{f}{o}{o}{enter}");
       await expect(spy).toHaveBeenCalledTimes(1);
@@ -117,8 +113,7 @@ export const Toggle = (() => {
         return <RemixStub />;
       },
     ],
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
+    play: async ({ canvas }) => {
       await userEvent.click(canvas.getByRole("checkbox"));
       await expect(spy).toHaveBeenCalledTimes(1);
     },
