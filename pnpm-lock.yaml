@@ -45,8 +45,8 @@ importers:
         specifier: 19.0.0-rc.0
         version: 19.0.0-rc.0(react@19.0.0-rc.0)
       remeda:
-        specifier: ^2.13.0
-        version: 2.13.0
+        specifier: ^2.14.0
+        version: 2.14.0
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -5619,8 +5619,8 @@ packages:
   remark-rehype@10.1.0:
     resolution: {integrity: sha512-EFmR5zppdBp0WQeDVZ/b66CWJipB2q2VLNFMabzDSGR66Z2fQii83G5gTBbgGEnEEA0QRussvrFHxk1HWGJskw==}
 
-  remeda@2.13.0:
-    resolution: {integrity: sha512-7HnFywwKBxzk8kOfKXxrGC2/RkIWW6goL76Z7cTXiaacfn51iVfwoTHiLWU3cSMs28BApG5QLVxH2fUqZS7LuQ==}
+  remeda@2.14.0:
+    resolution: {integrity: sha512-OSOhr9gGcb3AshMxlu9YnnUtKSkeYhj+AxWiWGfVh3HolYtJP5IF9vC1j1tq15uI7lxCPVd9qnnp43dOvZ840A==}
 
   replace-string@3.1.0:
     resolution: {integrity: sha512-yPpxc4ZR2makceA9hy/jHNqc7QVkd4Je/N0WRHm6bs3PtivPuPynxE5ejU/mp5EhnCv8+uZL7vhz8rkluSlx+Q==}
@@ -13452,7 +13452,7 @@ snapshots:
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
 
-  remeda@2.13.0:
+  remeda@2.14.0:
     dependencies:
       type-fest: 4.26.1
 
