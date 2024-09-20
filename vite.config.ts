@@ -6,7 +6,7 @@ import { defineConfig } from "vite";
 import babel from "vite-plugin-babel";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-declare module "@remix-run/server-runtime" {
+declare module "@remix-run/node" {
   interface Future {
     unstable_singleFetch: true;
   }
