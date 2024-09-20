@@ -45,10 +45,19 @@ function UpdateForm({
       ref={formRef}
       {...getFormProps(form)}
     >
-      <input {...getInputProps(fields._method, { type: "hidden" })} />
-      <input {...getInputProps(fields.id, { type: "hidden" })} />
+      <input
+        {...getInputProps(fields._method, { type: "hidden" })}
+        key={fields._method.key}
+      />
+      <input
+        {...getInputProps(fields.id, { type: "hidden" })}
+        key={fields.id.key}
+      />
       {todo.completed ? (
-        <input {...getInputProps(fields.completed, { type: "hidden" })} />
+        <input
+          {...getInputProps(fields.completed, { type: "hidden" })}
+          key={fields.completed.key}
+        />
       ) : null}
       <input
         // eslint-disable-next-line jsx-a11y/no-autofocus
@@ -65,6 +74,7 @@ function UpdateForm({
           }
         }}
         {...getInputProps(fields.title, { type: "text" })}
+        key={fields.title.key}
       />
     </fetcher.Form>
   );
@@ -99,13 +109,23 @@ function ToggleForm({
       ref={formRef}
       {...getFormProps(form)}
     >
-      <input {...getInputProps(fields._method, { type: "hidden" })} />
-      <input {...getInputProps(fields.id, { type: "hidden" })} />
-      <input {...getInputProps(fields.title, { type: "hidden" })} />
+      <input
+        {...getInputProps(fields._method, { type: "hidden" })}
+        key={fields._method.key}
+      />
+      <input
+        {...getInputProps(fields.id, { type: "hidden" })}
+        key={fields.id.key}
+      />
+      <input
+        {...getInputProps(fields.title, { type: "hidden" })}
+        key={fields.title.key}
+      />
       <input
         className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
         onChange={(event) => event.currentTarget.form?.requestSubmit()}
         {...getInputProps(fields.completed, { type: "checkbox" })}
+        key={fields.completed.key}
       />
       <label
         className={cn(
@@ -143,8 +163,14 @@ function DeleteForm({ todo }: Props) {
       ref={formRef}
       {...getFormProps(form)}
     >
-      <input {...getInputProps(fields._method, { type: "hidden" })} />
-      <input {...getInputProps(fields.id, { type: "hidden" })} />
+      <input
+        {...getInputProps(fields._method, { type: "hidden" })}
+        key={fields._method.key}
+      />
+      <input
+        {...getInputProps(fields.id, { type: "hidden" })}
+        key={fields.id.key}
+      />
       <TodoButton
         className={cn(
           "absolute inset-y-0 right-2.5 my-auto hidden size-10 text-3xl text-neutral-400 transition-colors duration-200 ease-out",
