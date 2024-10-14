@@ -14,7 +14,7 @@
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "remeda": "^2.15.0",
-    "tailwind-merge": "^2.5.3",
+    "tailwind-merge": "^2.5.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
