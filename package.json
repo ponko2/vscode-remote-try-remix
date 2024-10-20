@@ -34,7 +34,7 @@
     "@tsconfig/strictest": "^2.0.5",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.2",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "babel-plugin-react-compiler": "19.0.0-beta-9ee70a1-20241017",
     "eslint": "^8.57.1",
