@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@remix-run/dev": "^2.14.0",
     "@remix-run/testing": "^2.14.0",
     "@storybook/addon-essentials": "^8.4.4",
