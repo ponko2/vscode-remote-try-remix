@@ -1,11 +1,11 @@
 import { parseWithZod } from "@conform-to/zod";
-import type { ActionFunctionArgs } from "@remix-run/node";
 import * as R from "remeda";
 import { z } from "zod";
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
+import type { Route } from "./+types/todos.$todoId";
 
-export async function action({ request }: ActionFunctionArgs) {
+export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
   const submission = parseWithZod(formData, {
     schema: z.discriminatedUnion("_method", [

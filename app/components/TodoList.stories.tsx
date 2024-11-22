@@ -1,13 +1,13 @@
-import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect } from "@storybook/test";
+import { createRoutesStub } from "react-router";
 import TodoList from "~/components/TodoList";
 
 const meta = {
   component: TodoList,
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,

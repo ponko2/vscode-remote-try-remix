@@ -1,7 +1,7 @@
-import type { ActionFunctionArgs } from "@remix-run/node";
-import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, fn, userEvent } from "@storybook/test";
+import type { ActionFunctionArgs } from "react-router";
+import { createRoutesStub } from "react-router";
 import TodoHeader from "~/components/TodoHeader";
 
 const meta = {
@@ -18,7 +18,7 @@ export const Basic = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -63,7 +63,7 @@ export const Add = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRemixStub([
+        const RemixStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -97,7 +97,7 @@ export const Toggle = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRemixStub([
+        const RemixStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
