@@ -1,6 +1,7 @@
+*.tsbuildinfo
 *storybook.log
 .env
-/.cache
+.react-router/
 /build
 node_modules
 prisma/dev.db

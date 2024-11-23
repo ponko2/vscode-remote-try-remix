@@ -52,9 +52,10 @@ updates:
       react-compiler:
         patterns:
           - "*-plugin-react-compiler"
-      remix:
+      react-router:
         patterns:
-          - "@remix-run/*"
+          - "@react-router/*"
+          - react-router
       storybook:
         patterns:
           - "@storybook/*"

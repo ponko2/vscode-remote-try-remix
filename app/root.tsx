@@ -1,23 +1,13 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
-import stylesheet from "~/tailwind.css?url";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import "~/app.css";
+import type { Route } from "./+types/root";
 
-export const meta: MetaFunction = () => {
+export const meta: Route.MetaFunction = () => {
   return [
     { title: "New Remix App" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
-
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

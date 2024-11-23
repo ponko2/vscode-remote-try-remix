@@ -1,6 +1,6 @@
-import { createRemixStub } from "@remix-run/testing";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, fn, userEvent } from "@storybook/test";
+import { createRoutesStub } from "react-router";
 import TodoFooter from "~/components/TodoFooter";
 
 const meta = {
@@ -17,7 +17,7 @@ export const Basic = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -57,7 +57,7 @@ export const ShowAll = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -90,7 +90,7 @@ export const ShowActive = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -123,7 +123,7 @@ export const ShowCompleted = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRemixStub([
+      const RemixStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -158,7 +158,7 @@ export const ClearCompleted = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRemixStub([
+        const RemixStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
