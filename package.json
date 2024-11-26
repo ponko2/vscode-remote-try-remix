@@ -54,7 +54,7 @@
     "npm-run-all2": "^7.0.1",
     "playwright": "^1.49.0",
     "postcss": "^8.4.49",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "prisma": "^5.22.0",
     "prisma-case-format": "^2.2.1",
