@@ -50,7 +50,7 @@
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-vitest": "^0.4.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^15.2.11",
     "npm-run-all2": "^7.0.1",
     "playwright": "^1.49.0",
     "postcss": "^8.4.49",
