@@ -45,8 +45,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       remeda:
-        specifier: ^2.17.4
-        version: 2.17.4
+        specifier: ^2.18.0
+        version: 2.18.0
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5
@@ -4697,8 +4697,8 @@ packages:
     resolution: {integrity: sha512-gUAyHVHPPC5wdqX/LG4LWtRYtgjxyX78oanFNTMMyFEfOqdC54s3eE82imuWKbOeqYht2CrNf64Qb8vgmmtZGA==}
     engines: {node: '>=4'}
 
-  remeda@2.17.4:
-    resolution: {integrity: sha512-pviU2Ag7Qx9mOCAKO4voxDx/scfLzdhp3v85qDO4xxntQsU76uE9sgrAAdK1ATn4zzaOJqCXYMMNRP+O9F4Wiw==}
+  remeda@2.18.0:
+    resolution: {integrity: sha512-wvHvaApA7crz46HWhGTotPawkzd45w1iXzPK7r4ECQgbmcSqHLrVio2LOr7ZEp1pu5QDH1U391ZKu+qra7OoLw==}
 
   replace-string@3.1.0:
     resolution: {integrity: sha512-yPpxc4ZR2makceA9hy/jHNqc7QVkd4Je/N0WRHm6bs3PtivPuPynxE5ejU/mp5EhnCv8+uZL7vhz8rkluSlx+Q==}
@@ -5262,8 +5262,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.27.0:
-    resolution: {integrity: sha512-3IMSWgP7C5KSQqmo1wjhKrwsvXAtF33jO3QY+Uy++ia7hqvgSK6iXbbg5PbDBc1P2ZbNEDgejOrN4YooXvhwCw==}
+  type-fest@4.30.2:
+    resolution: {integrity: sha512-UJShLPYi1aWqCdq9HycOL/gwsuqda1OISdBO3t8RlXQC4QvtuIz4b5FCfe2dQIWEpmlRExKmcTBfP1r9bhY7ig==}
     engines: {node: '>=16'}
 
   type-is@1.6.18:
@@ -10908,9 +10908,9 @@ snapshots:
     dependencies:
       es6-error: 4.1.1
 
-  remeda@2.17.4:
+  remeda@2.18.0:
     dependencies:
-      type-fest: 4.27.0
+      type-fest: 4.30.2
 
   replace-string@3.1.0: {}
 
@@ -11518,7 +11518,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.27.0: {}
+  type-fest@4.30.2: {}
 
   type-is@1.6.18:
     dependencies:
