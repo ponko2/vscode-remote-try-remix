@@ -1,5 +1,5 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import "~/app.css";
+import stylesheet from "~/app.css?url";
 import type { Route } from "./+types/root";
 
 export const meta: Route.MetaFunction = () => {
@@ -8,6 +8,10 @@ export const meta: Route.MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
+export const links: Route.LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
