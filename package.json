@@ -38,7 +38,7 @@
     "autoprefixer": "^10.4.20",
     "babel-plugin-react-compiler": "19.0.0-beta-55955c9-20241229",
     "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
