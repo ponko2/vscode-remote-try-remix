@@ -14,7 +14,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router": "^7.1.1",
-    "remeda": "^2.19.0",
+    "remeda": "^2.19.1",
     "tailwind-merge": "^2.6.0",
     "zod": "^3.24.1"
   },
