@@ -55,7 +55,7 @@
     "playwright": "^1.49.1",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
+    "prettier-plugin-tailwindcss": "^0.6.10",
     "prisma": "^6.2.1",
     "prisma-case-format": "^2.2.1",
     "storybook": "^8.5.0",
