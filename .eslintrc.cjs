@@ -17,19 +17,23 @@ module.exports = {
   ignorePatterns: ["!**/.client", "!**/.server"],
 
   // Base config
-  extends: ["eslint:recommended", "plugin:storybook/recommended", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:storybook/recommended",
+    "plugin:tailwindcss/recommended",
+    "prettier",
+  ],
 
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "react-compiler", "react-refresh", "jsx-a11y"],
+      plugins: ["react-compiler", "react-refresh"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:tailwindcss/recommended",
         "prettier",
       ],
       settings: {
@@ -41,14 +45,12 @@ module.exports = {
           { name: "Link", linkAttribute: "to" },
           { name: "NavLink", linkAttribute: "to" },
         ],
-        "import/resolver": {
-          typescript: {},
-        },
       },
       rules: {
+        // ---------------------------------------------------------------------------
         // React
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/README.md
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
 
         // Enforce consistent usage of destructuring assignment of props, state, and context
         "react/destructuring-assignment": "error",
@@ -122,9 +124,10 @@ module.exports = {
         // Disallow extra closing tags for components without children
         "react/self-closing-comp": "error",
 
+        // ---------------------------------------------------------------------------
         // React Refresh
         // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/blob/main/README.md
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
         "react-refresh/only-export-components": [
           "warn",
           {
@@ -133,9 +136,10 @@ module.exports = {
           },
         ],
 
+        // ---------------------------------------------------------------------------
         // React Compiler
         // https://react.dev/learn/react-compiler
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
         "react-compiler/react-compiler": "error",
       },
     },
@@ -143,8 +147,17 @@ module.exports = {
     // TypeScript
     {
       files: ["**/*.{ts,tsx}"],
-      plugins: ["@typescript-eslint", "import"],
-      parser: "@typescript-eslint/parser",
+      extends: [
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "prettier",
+      ],
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
       settings: {
         "import/internal-regex": "^~/",
         "import/resolver": {
@@ -156,37 +169,19 @@ module.exports = {
           },
         },
       },
-      extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/stylistic",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-        "prettier",
-      ],
       rules: {
+        // ---------------------------------------------------------------------------
         // React
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/README.md
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
 
         // Disallow missing props validation in a React component definition
         "react/prop-types": "off",
-      },
-    },
-    {
-      files: ["**/*.{ts,tsx}"],
-      extends: [
-        "plugin:@typescript-eslint/recommended-type-checked",
-        "plugin:@typescript-eslint/stylistic-type-checked",
-        "prettier",
-      ],
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: __dirname,
-      },
-      rules: {
+
+        // ---------------------------------------------------------------------------
         // TypeScript
         // https://typescript-eslint.io/rules/
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
 
         // Enforce consistent usage of type imports
         "@typescript-eslint/consistent-type-imports": "error",
@@ -201,9 +196,10 @@ module.exports = {
       files: ["*.test.ts", "*.test.tsx"],
       extends: ["plugin:vitest/recommended", "prettier"],
       rules: {
+        // ---------------------------------------------------------------------------
         // Vitest
         // https://github.com/veritem/eslint-plugin-vitest
-        // ----------------------------------------------
+        // ---------------------------------------------------------------------------
 
         // Disallow alias methods
         "vitest/no-alias-methods": "error",
