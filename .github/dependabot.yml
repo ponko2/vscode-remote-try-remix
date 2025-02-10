@@ -41,6 +41,10 @@ updates:
       conform:
         patterns:
           - "@conform-to/*"
+      eslint:
+        patterns:
+          - "@eslint/*"
+          - eslint
       prisma:
         patterns:
           - "@prisma/*"
