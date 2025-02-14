@@ -38,7 +38,7 @@ function CreateForm() {
         className={cn(
           "size-full py-4 pl-14 pr-4 text-2xl shadow-inner",
           "placeholder:font-normal placeholder:italic placeholder:text-black/40",
-          "focus:shadow focus:shadow-red-400 focus:outline-none",
+          "focus:shadow-sm focus:shadow-red-400 focus:outline-hidden",
         )}
         key={fields.title.key}
         onKeyDown={(event) => {
@@ -67,10 +67,10 @@ function ToggleForm({ checked }: { checked: boolean }) {
         />
         <span
           className={cn(
-            "absolute left-0 top-0 flex h-full w-12 items-center justify-center text-[0]",
+            "absolute left-0 top-0 flex h-full w-12 items-center justify-center text-[0px]",
             "before:inline-block before:rotate-90 before:px-7 before:py-2.5 before:text-2xl before:text-neutral-400 before:content-['❯']",
             "peer-checked:before:text-neutral-700",
-            "peer-focus:shadow peer-focus:shadow-red-400 peer-focus:outline-none",
+            "peer-focus:shadow-sm peer-focus:shadow-red-400 peer-focus:outline-hidden",
           )}
         >
           Mark all as complete

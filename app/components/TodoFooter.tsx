@@ -34,7 +34,7 @@ export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
   const activeCount = todosCount - completedTodosCount;
 
   const link = cva(
-    "m-1 rounded border px-2 py-1 no-underline hover:border-red-400",
+    "m-1 rounded-sm border px-2 py-1 no-underline hover:border-red-400",
     {
       variants: {
         intent: {

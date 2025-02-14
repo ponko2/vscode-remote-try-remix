@@ -64,6 +64,10 @@ updates:
         patterns:
           - "@storybook/*"
           - storybook
+      tailwindcss:
+        patterns:
+          - "@tailwindcss/*"
+          - tailwindcss
       tsconfig:
         patterns:
           - "@tsconfig/*"
