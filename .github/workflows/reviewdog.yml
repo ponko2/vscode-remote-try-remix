@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,7 +21,7 @@ jobs:
         run: pnpm install
       - run: pnpm run generate
       - run: pnpm exec react-router typegen
-      - uses: reviewdog/action-eslint@v1
+      - uses: reviewdog/action-eslint@2fee6dd72a5419ff4113f694e2068d2a03bb35dd # v1.33.2
         with:
           fail_level: error
           filter_mode: nofilter
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - run: pnpm exec prettier --write .
-      - uses: reviewdog/action-setup@v1
+      - uses: reviewdog/action-setup@e04ffabe3898a0af8d0fb1af00c188831c4b5893 # v1.3.2
       - name: Run reviewdog
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -65,7 +65,7 @@ jobs:
         run: pnpm install
       - run: pnpm exec prisma format
       - run: pnpm exec prisma-case-format --file prisma/schema.prisma
-      - uses: reviewdog/action-setup@v1
+      - uses: reviewdog/action-setup@e04ffabe3898a0af8d0fb1af00c188831c4b5893 # v1.3.2
       - name: Run reviewdog
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
