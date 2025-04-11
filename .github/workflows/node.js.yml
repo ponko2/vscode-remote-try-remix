@@ -24,7 +24,18 @@ jobs:
       - run: pnpm run typecheck
       - run: pnpm run build
       - run: pnpm test
-      - run: pnpm exec playwright install --with-deps
+      - name: Get installed playwright version
+        id: playwright-version
+        run: echo "version=$(pnpm list --depth 0 --json playwright | jq -r '.[0].devDependencies.playwright.version')" >> "$GITHUB_OUTPUT"
+      - name: Cache playwright
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
+      - name: Install playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install --with-deps
       - run: pnpm run build-storybook
       - run: >-
           pnpm dlx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
