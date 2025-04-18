@@ -1,6 +1,6 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useFetcher } from "react-router";
 import { cn } from "~/lib/utils";
 import type { action as createAction } from "~/routes/todos";
@@ -21,11 +21,6 @@ function CreateForm() {
       return parseWithZod(formData, { schema: createTodoSchema });
     },
   });
-  useEffect(() => {
-    if (fetcher.state === "idle" && fetcher.data?.status === "success") {
-      formRef.current?.reset();
-    }
-  }, [fetcher.state, fetcher.data]);
   return (
     <fetcher.Form
       {...getFormProps(form)}

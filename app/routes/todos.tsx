@@ -10,5 +10,5 @@ export async function action({ request }: Route.ActionArgs) {
     return submission.reply();
   }
   await createTodo(submission.value);
-  return submission.reply();
+  return submission.reply({ resetForm: true });
 }

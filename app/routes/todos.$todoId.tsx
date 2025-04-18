@@ -22,5 +22,5 @@ export async function action({ request }: Route.ActionArgs) {
   if (submission.value._method === "put") {
     await updateTodo(R.omit(submission.value, ["_method"]));
   }
-  return submission.reply();
+  return submission.reply({ resetForm: true });
 }
