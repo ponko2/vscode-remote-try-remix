@@ -40,7 +40,6 @@ function CreateForm() {
           "placeholder:font-normal placeholder:italic placeholder:text-black/40",
           "focus:shadow focus:shadow-red-400 focus:outline-none",
         )}
-        key={fields.title.key}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             event.preventDefault();
