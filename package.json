@@ -91,7 +91,9 @@
     "fix:prettier": "prettier --write .",
     "fix:prisma": "prisma format",
     "fix:prisma-case": "prisma-case-format --file prisma/schema.prisma",
-    "generate": "prisma generate",
+    "generate": "run-p --aggregate-output -c -l generate:*",
+    "generate:prisma": "prisma generate",
+    "generate:react-router": "react-router typegen",
     "lint": "run-p --aggregate-output -c -l lint:*",
     "lint:eslint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:prettier": "prettier --check .",
@@ -101,7 +103,7 @@
     "storybook": "storybook dev -p 6006",
     "test": "vitest --passWithNoTests",
     "test-storybook": "test-storybook",
-    "typecheck": "react-router typegen && tsc --build --noEmit"
+    "typecheck": "tsc --build --noEmit"
   },
   "type": "module"
 }
