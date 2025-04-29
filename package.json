@@ -5,7 +5,7 @@
     "@conform-to/react": "^1.4.0",
     "@conform-to/zod": "^1.4.0",
     "@prisma/client": "^6.6.0",
-    "@react-router/fs-routes": "^7.5.2",
+    "@react-router/fs-routes": "^7.5.3",
     "@react-router/node": "^7.5.2",
     "@react-router/serve": "^7.5.2",
     "class-variance-authority": "^0.7.1",
