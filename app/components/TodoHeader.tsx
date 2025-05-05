@@ -16,6 +16,7 @@ function CreateForm() {
   const fetcher = useFetcher<typeof createAction>();
   const formRef = useRef<HTMLFormElement>(null);
   const [form, fields] = useForm({
+    defaultValue: { title: "" },
     lastResult: fetcher.state === "idle" ? fetcher.data : null,
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: createTodoSchema });
