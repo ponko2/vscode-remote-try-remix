@@ -141,7 +141,7 @@ jobs:
         with:
           fail_level: warning
           filter_mode: nofilter
-          reporter: github-pr-annotations
+          reporter: github-annotations
   build:
     name: Build
     needs:
@@ -233,7 +233,7 @@ jobs:
         with:
           fail_level: error
           filter_mode: nofilter
-          reporter: github-pr-annotations
+          reporter: github-annotations
           tool_name: ESLint
   ghalint:
     name: ghalint
@@ -291,7 +291,7 @@ jobs:
           TMPFILE=$(mktemp)
           git diff >"${TMPFILE}"
           { git stash -u && git stash drop; } || true
-          reviewdog -f=diff -fail-level=error -filter-mode=nofilter -name=Prettier -reporter=github-pr-annotations <"${TMPFILE}"
+          reviewdog -f=diff -fail-level=error -filter-mode=nofilter -name=Prettier -reporter=github-annotations <"${TMPFILE}"
   prisma:
     name: Prisma
     if: ${{ needs.changed-files.outputs.prisma == 'true' }}
@@ -324,7 +324,7 @@ jobs:
           TMPFILE=$(mktemp)
           git diff >"${TMPFILE}"
           { git stash -u && git stash drop; } || true
-          reviewdog -f=diff -fail-level=error -filter-mode=nofilter -name=Prisma -reporter=github-pr-annotations <"${TMPFILE}"
+          reviewdog -f=diff -fail-level=error -filter-mode=nofilter -name=Prisma -reporter=github-annotations <"${TMPFILE}"
   test:
     name: Test
     if: ${{ needs.changed-files.outputs.test == 'true' }}
@@ -441,7 +441,7 @@ jobs:
         with:
           fail_level: error
           filter_mode: nofilter
-          reporter: github-pr-annotations
+          reporter: github-annotations
   zizmor:
     name: zizmor
     if: ${{ needs.changed-files.outputs.workflows == 'true' }}
