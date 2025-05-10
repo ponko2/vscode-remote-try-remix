@@ -18,13 +18,13 @@ export const Basic = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
         },
       ]);
-      return <RemixStub />;
+      return <RoutesStub />;
     },
   ],
   play: async ({ canvas }) => {
@@ -63,7 +63,7 @@ export const Add = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -76,7 +76,7 @@ export const Add = (() => {
             },
           },
         ]);
-        return <RemixStub />;
+        return <RoutesStub />;
       },
     ],
     play: async ({ canvas }) => {
@@ -97,7 +97,7 @@ export const Toggle = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -110,7 +110,7 @@ export const Toggle = (() => {
             },
           },
         ]);
-        return <RemixStub />;
+        return <RoutesStub />;
       },
     ],
     play: async ({ canvas }) => {

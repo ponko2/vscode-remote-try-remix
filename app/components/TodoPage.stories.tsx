@@ -7,7 +7,7 @@ const meta = {
   component: TodoPage,
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -21,7 +21,7 @@ const meta = {
           Component: Story,
         },
       ]);
-      return <RemixStub />;
+      return <RoutesStub />;
     },
   ],
 } satisfies Meta<typeof TodoPage>;

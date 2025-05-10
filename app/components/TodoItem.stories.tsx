@@ -21,7 +21,7 @@ export const Basic = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -29,7 +29,7 @@ export const Basic = {
       ]);
       return (
         <ul>
-          <RemixStub />
+          <RoutesStub />
         </ul>
       );
     },
@@ -67,7 +67,7 @@ export const EditViaFocusOut = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -82,7 +82,7 @@ export const EditViaFocusOut = (() => {
         ]);
         return (
           <ul>
-            <RemixStub />
+            <RoutesStub />
           </ul>
         );
       },
@@ -115,7 +115,7 @@ export const EditViaEnterKey = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -130,7 +130,7 @@ export const EditViaEnterKey = (() => {
         ]);
         return (
           <ul>
-            <RemixStub />
+            <RoutesStub />
           </ul>
         );
       },
@@ -162,7 +162,7 @@ export const DeleteViaEmptyEdit = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -177,7 +177,7 @@ export const DeleteViaEmptyEdit = (() => {
         ]);
         return (
           <ul>
-            <RemixStub />
+            <RoutesStub />
           </ul>
         );
       },
@@ -209,7 +209,7 @@ export const DeleteViaDeleteButton = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -224,7 +224,7 @@ export const DeleteViaDeleteButton = (() => {
         ]);
         return (
           <ul>
-            <RemixStub />
+            <RoutesStub />
           </ul>
         );
       },
@@ -253,7 +253,7 @@ export const Toggle = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -268,7 +268,7 @@ export const Toggle = (() => {
         ]);
         return (
           <ul>
-            <RemixStub />
+            <RoutesStub />
           </ul>
         );
       },

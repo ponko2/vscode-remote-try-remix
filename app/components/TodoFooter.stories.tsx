@@ -17,7 +17,7 @@ export const Basic = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -31,7 +31,7 @@ export const Basic = {
           Component: Story,
         },
       ]);
-      return <RemixStub />;
+      return <RoutesStub />;
     },
   ],
   play: async ({ canvas }) => {
@@ -57,7 +57,7 @@ export const ShowAll = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -71,14 +71,14 @@ export const ShowAll = {
           Component: Story,
         },
       ]);
-      return <RemixStub initialEntries={["/active"]} />;
+      return <RoutesStub initialEntries={["/active"]} />;
     },
   ],
   play: async ({ canvas }) => {
-    const button = await canvas.findByText("All");
+    const button = canvas.getByText("All");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
-    await expect(button).toHaveClass("border-red-700");
+    await expect(canvas.getByText("All")).toHaveClass("border-red-700");
     await userEvent.click(document.body);
   },
 } satisfies Story;
@@ -90,7 +90,7 @@ export const ShowActive = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -104,14 +104,14 @@ export const ShowActive = {
           Component: Story,
         },
       ]);
-      return <RemixStub initialEntries={["/"]} />;
+      return <RoutesStub initialEntries={["/"]} />;
     },
   ],
   play: async ({ canvas }) => {
-    const button = await canvas.findByText("Active");
+    const button = canvas.getByText("Active");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
-    await expect(button).toHaveClass("border-red-700");
+    await expect(canvas.getByText("Active")).toHaveClass("border-red-700");
     await userEvent.click(document.body);
   },
 } satisfies Story;
@@ -123,7 +123,7 @@ export const ShowCompleted = {
   },
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
@@ -137,14 +137,14 @@ export const ShowCompleted = {
           Component: Story,
         },
       ]);
-      return <RemixStub initialEntries={["/"]} />;
+      return <RoutesStub initialEntries={["/"]} />;
     },
   ],
   play: async ({ canvas }) => {
-    const button = await canvas.findByText("Completed");
+    const button = canvas.getByText("Completed");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
-    await expect(button).toHaveClass("border-red-700");
+    await expect(canvas.getByText("Completed")).toHaveClass("border-red-700");
     await userEvent.click(document.body);
   },
 } satisfies Story;
@@ -158,7 +158,7 @@ export const ClearCompleted = (() => {
     },
     decorators: [
       (Story) => {
-        const RemixStub = createRoutesStub([
+        const RoutesStub = createRoutesStub([
           {
             path: "/",
             Component: Story,
@@ -179,11 +179,11 @@ export const ClearCompleted = (() => {
             },
           },
         ]);
-        return <RemixStub />;
+        return <RoutesStub />;
       },
     ],
     play: async ({ canvas }) => {
-      await userEvent.click(await canvas.findByText("Clear completed"));
+      await userEvent.click(canvas.getByText("Clear completed"));
       await expect(spy).toHaveBeenCalledTimes(1);
     },
   } satisfies Story;

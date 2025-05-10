@@ -7,13 +7,13 @@ const meta = {
   component: TodoList,
   decorators: [
     (Story) => {
-      const RemixStub = createRoutesStub([
+      const RoutesStub = createRoutesStub([
         {
           path: "/",
           Component: Story,
         },
       ]);
-      return <RemixStub />;
+      return <RoutesStub />;
     },
   ],
 } satisfies Meta<typeof TodoList>;
