@@ -4,11 +4,16 @@
     "config:best-practices",
     "group:definitelyTyped",
     ":automergePatch",
+    ":automergeTypes",
     ":disableRateLimiting",
     ":gitSignOff",
     ":semanticCommits"
   ],
   "labels": ["dependencies"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "packageRules": [
     {
       "groupName": "conform monorepo",
