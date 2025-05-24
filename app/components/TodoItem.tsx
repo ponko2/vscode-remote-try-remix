@@ -1,5 +1,5 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
-import { parseWithZod } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod/v4";
 import type { Todo } from "@prisma/client";
 import { cva } from "class-variance-authority";
 import { useRef, useState } from "react";
