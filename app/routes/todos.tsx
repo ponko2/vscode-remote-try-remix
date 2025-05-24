@@ -1,4 +1,4 @@
-import { parseWithZod } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod/v4";
 import { createTodo } from "~/.server/models/todo";
 import { createTodoSchema } from "~/schemas/todo";
 import type { Route } from "./+types/todos";

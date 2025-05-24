@@ -1,5 +1,5 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
-import { parseWithZod } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod/v4";
 import { useRef } from "react";
 import { useFetcher } from "react-router";
 import { cn } from "~/lib/utils";

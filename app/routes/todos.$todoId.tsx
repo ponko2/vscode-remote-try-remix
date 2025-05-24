@@ -1,6 +1,6 @@
-import { parseWithZod } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod/v4";
 import * as R from "remeda";
-import { z } from "zod";
+import { z } from "zod/v4";
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
 import type { Route } from "./+types/todos.$todoId";
