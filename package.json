@@ -34,7 +34,7 @@
     "@storybook/test-runner": "0.22.0",
     "@tsconfig/remix": "2.0.5",
     "@tsconfig/strictest": "2.0.5",
-    "@types/react": "19.1.5",
+    "@types/react": "19.1.6",
     "@types/react-dom": "19.1.5",
     "@vitejs/plugin-react": "4.5.0",
     "@vitest/eslint-plugin": "1.2.1",
