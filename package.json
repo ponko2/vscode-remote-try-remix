@@ -16,7 +16,7 @@
     "react-router": "^7.6.1",
     "remeda": "^2.22.3",
     "tailwind-merge": "^2.6.0",
-    "zod": "^3.25.28"
+    "zod": "^3.25.32"
   },
   "devDependencies": {
     "@babel/preset-typescript": "7.27.1",
