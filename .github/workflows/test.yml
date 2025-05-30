@@ -216,6 +216,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/renovatebot/renovate:40.36.2@sha256:0612073dd7e166b6d637a0470bc843b8afd6e236f610b7a11aee33efb6af3377
+      options: --user root
     timeout-minutes: 60
     permissions:
       contents: read
@@ -224,10 +225,6 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Set up
-        id: setup
-        shell: bash
-        run: echo "renovate-log=${{ runner.temp }}/renovate-dry-run.log" >> "$GITHUB_OUTPUT"
       - name: Dry-run Renovate
         env:
           LOG_FORMAT: text
@@ -243,7 +240,7 @@ jobs:
           --require-config=ignored
           --dry-run=full
           ${{ github.repository }}
-          | tee ${{ steps.setup.outputs.renovate-log }}
+          | tee /tmp/renovate-dry-run.log
       - name: Output to step summary
         if: always()
         shell: bash
@@ -254,7 +251,7 @@ jobs:
             echo "<summary>detail</summary>"
             echo ""
             echo '```json'
-            cat ${{ steps.setup.outputs.renovate-log }}
+            cat /tmp/renovate-dry-run.log
             echo '```'
             echo ""
             echo "</details>"
