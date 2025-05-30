@@ -15,6 +15,7 @@ jobs:
       - build
       - changed-files
       - commitlint
+      - dry-run-renovate
       - editorconfig
       - eslint
       - ghalint
@@ -70,6 +71,7 @@ jobs:
       eslint: ${{ steps.changed-files.outputs.eslint_any_modified == 'true' }}
       prettier: ${{ steps.changed-files.outputs.prettier_any_modified == 'true' }}
       prisma: ${{ steps.changed-files.outputs.prisma_any_modified == 'true' }}
+      renovate: ${{ steps.changed-files.outputs.renovate_any_modified == 'true' }}
       test: ${{ steps.changed-files.outputs.test_any_modified == 'true' }}
       test-storybook: ${{ steps.changed-files.outputs.test-storybook_any_modified == 'true' }}
       typecheck: ${{ steps.changed-files.outputs.typecheck_any_modified == 'true' }}
@@ -114,6 +116,9 @@ jobs:
               - *dependencies
               - .prisma-case-format
               - prisma/**
+            renovate:
+              - *common
+              - .github/renovate.json
             test: &test
               - *app
             test-storybook:
@@ -202,6 +207,70 @@ jobs:
           --from ${{ github.event.pull_request.base.sha }}
           --to ${{ github.event.pull_request.head.sha }}
           --verbose
+  dry-run-renovate:
+    name: Dry-run Renovate
+    if: ${{ needs.changed-files.outputs.renovate == 'true' }}
+    needs:
+      - changed-files
+      - triggering-actor
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - name: Set up
+        id: setup
+        shell: bash
+        run: |
+          {
+            # Get the major version number of Renovate to use for the cache key.
+            echo "renovate-version=$(npm show renovate version --no-update-notifier | cut -d . -f 1)"
+            # Create a path to save the Renovate log.
+            echo "renovate-log=${{ runner.temp }}/renovate-dry-run.log"
+          } >> "$GITHUB_OUTPUT"
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: lts/*
+      - uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with:
+          path: ~/.npm
+          key: npm-renovate-major-v${{ steps.setup.outputs.renovate-version }}
+      - name: Dry-run Renovate
+        env:
+          LOG_FORMAT: text
+          LOG_LEVEL: debug
+          RENOVATE_CONFIG_FILE: .github/renovate.json
+          RENOVATE_GIT_AUTHOR: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RENOVATE_USERNAME: github-actions[bot]
+        shell: bash
+        run: >-
+          npx renovate
+          --schedule=
+          --require-config=ignored
+          --dry-run=full
+          ${{ github.repository }}
+          | tee ${{ steps.setup.outputs.renovate-log }}
+      - name: Output to step summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "# Renovate dry run log"
+            echo "<details>"
+            echo "<summary>detail</summary>"
+            echo ""
+            echo '```json'
+            cat ${{ steps.setup.outputs.renovate-log }}
+            echo '```'
+            echo ""
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"
   editorconfig:
     name: EditorConfig
     needs: triggering-actor
