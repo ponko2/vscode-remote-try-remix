@@ -14,7 +14,7 @@ export default function TodoPage({ todos, type }: Props) {
   const completedTodosCount = todos.filter((todo) => todo.completed).length;
   return (
     <div className="h-screen overflow-y-auto bg-neutral-100 text-sm font-light text-neutral-900 antialiased">
-      <div className="container mx-auto min-w-60 max-w-xl">
+      <div className="container mx-auto max-w-xl min-w-60">
         <section
           className={cn(
             "relative my-10 divide-y divide-neutral-200 bg-white shadow-2xl",

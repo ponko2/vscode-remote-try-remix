@@ -34,7 +34,7 @@ export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
   const activeCount = todosCount - completedTodosCount;
 
   const link = cva(
-    "m-1 rounded border px-2 py-1 no-underline hover:border-red-400",
+    "m-1 rounded-sm border px-2 py-1 no-underline hover:border-red-400",
     {
       variants: {
         intent: {
@@ -51,7 +51,7 @@ export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
         <strong className="font-light">{activeCount ?? "No"}</strong>{" "}
         {activeCount === 1 ? "item" : "items"} left
       </span>
-      <ul className="order-last col-span-full text-center sm:order-none sm:col-auto">
+      <ul className="order-last col-span-full text-center sm:order-0 sm:col-auto">
         {[
           { href: "/", text: "All" },
           { href: "/active", text: "Active" },

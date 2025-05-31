@@ -60,7 +60,7 @@ function UpdateForm({
         autoFocus
         className={cn(
           "size-full border border-neutral-400 px-4 py-3 shadow-inner",
-          "focus:shadow focus:shadow-red-400 focus:outline-none",
+          "focus:shadow-sm focus:shadow-red-400 focus:outline-hidden",
         )}
         onBlur={(event) => event.currentTarget.form?.requestSubmit()}
         onKeyDown={(event) => {
@@ -111,14 +111,14 @@ function ToggleForm({
       <input
         {...getInputProps(fields.completed, { type: "checkbox", value: false })}
         checked={todo.completed}
-        className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-none"
+        className="peer absolute inset-y-0 my-auto size-12 appearance-none outline-hidden"
         onChange={(event) => event.currentTarget.form?.requestSubmit()}
       />
       <label
         className={cn(
-          "block h-full break-words bg-unchecked bg-left bg-no-repeat py-4 pl-14 pr-4 font-normal leading-tight text-neutral-700 transition-colors duration-500",
+          "bg-unchecked block h-full bg-left bg-no-repeat py-4 pr-4 pl-14 leading-tight font-normal break-words text-neutral-700 transition-colors duration-500",
           "peer-checked:bg-checked peer-checked:text-neutral-400 peer-checked:line-through",
-          "peer-focus:shadow peer-focus:shadow-red-400 peer-focus:outline-none",
+          "peer-focus:shadow-sm peer-focus:shadow-red-400 peer-focus:outline-hidden",
         )}
         onDoubleClick={() => onEditChange(true)}
       >

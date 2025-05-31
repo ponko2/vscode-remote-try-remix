@@ -11,7 +11,6 @@ import reactCompiler from "eslint-plugin-react-compiler";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import storybook from "eslint-plugin-storybook";
-import tailwind from "eslint-plugin-tailwindcss";
 import globals from "globals";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -51,7 +50,6 @@ export default tseslint.config(
   importPlugin.flatConfigs.typescript,
   reactCompiler.configs.recommended,
   ...storybook.configs["flat/recommended"],
-  ...tailwind.configs["flat/recommended"],
   {
     languageOptions: {
       parserOptions: {
