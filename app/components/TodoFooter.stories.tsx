@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { createRoutesStub } from "react-router";
+import { expect, fn } from "storybook/test";
 import TodoFooter from "~/components/TodoFooter";
 
 const meta = {
@@ -74,7 +74,7 @@ export const ShowAll = {
       return <RoutesStub initialEntries={["/active"]} />;
     },
   ],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, userEvent }) => {
     const button = canvas.getByText("All");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -107,7 +107,7 @@ export const ShowActive = {
       return <RoutesStub initialEntries={["/"]} />;
     },
   ],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, userEvent }) => {
     const button = canvas.getByText("Active");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -140,7 +140,7 @@ export const ShowCompleted = {
       return <RoutesStub initialEntries={["/"]} />;
     },
   ],
-  play: async ({ canvas }) => {
+  play: async ({ canvas, userEvent }) => {
     const button = canvas.getByText("Completed");
     await expect(button).not.toHaveClass("border-red-700");
     await userEvent.click(button);
@@ -182,7 +182,7 @@ export const ClearCompleted = (() => {
         return <RoutesStub />;
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.click(canvas.getByText("Clear completed"));
       await expect(spy).toHaveBeenCalledTimes(1);
     },
