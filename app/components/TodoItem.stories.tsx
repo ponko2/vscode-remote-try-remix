@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ActionFunctionArgs } from "react-router";
 import { createRoutesStub } from "react-router";
+import { expect, fn } from "storybook/test";
 import TodoItem from "~/components/TodoItem";
 
 const meta = {
@@ -87,7 +87,7 @@ export const EditViaFocusOut = (() => {
         );
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -135,7 +135,7 @@ export const EditViaEnterKey = (() => {
         );
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -182,7 +182,7 @@ export const DeleteViaEmptyEdit = (() => {
         );
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.dblClick(canvas.getByText("foo"));
       const input = canvas.getByRole("textbox");
       await userEvent.clear(input);
@@ -229,7 +229,7 @@ export const DeleteViaDeleteButton = (() => {
         );
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.hover(canvas.getByRole("listitem"));
       await userEvent.click(canvas.getByRole("button", { hidden: true }));
       await expect(spy).toHaveBeenCalledTimes(1);
@@ -273,7 +273,7 @@ export const Toggle = (() => {
         );
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.click(canvas.getByRole("checkbox"));
       await expect(spy).toHaveBeenCalledTimes(1);
       await expect(spy).toHaveBeenCalledWith({
