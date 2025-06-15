@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, fn, userEvent } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ActionFunctionArgs } from "react-router";
 import { createRoutesStub } from "react-router";
+import { expect, fn } from "storybook/test";
 import TodoHeader from "~/components/TodoHeader";
 
 const meta = {
@@ -79,7 +79,7 @@ export const Add = (() => {
         return <RoutesStub />;
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       const input = canvas.getByRole("textbox");
       await userEvent.type(input, "{f}{o}{o}{enter}");
       await expect(spy).toHaveBeenCalledTimes(1);
@@ -113,7 +113,7 @@ export const Toggle = (() => {
         return <RoutesStub />;
       },
     ],
-    play: async ({ canvas }) => {
+    play: async ({ canvas, userEvent }) => {
       await userEvent.click(canvas.getByRole("checkbox"));
       await expect(spy).toHaveBeenCalledTimes(1);
     },
