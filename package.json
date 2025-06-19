@@ -2,8 +2,8 @@
   "name": "vscode-remote-try-remix",
   "version": "0.1.0",
   "dependencies": {
-    "@conform-to/react": "^1.7.0",
-    "@conform-to/zod": "^1.7.0",
+    "@conform-to/react": "^1.7.1",
+    "@conform-to/zod": "^1.7.1",
     "@prisma/client": "^6.9.0",
     "@react-router/fs-routes": "^7.6.2",
     "@react-router/node": "^7.6.2",
