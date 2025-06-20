@@ -32,6 +32,10 @@
       "matchSourceUrls": ["https://github.com/edmundhung/conform"]
     },
     {
+      "groupName": "playwright monorepo",
+      "matchPackageNames": ["mcr.microsoft.com/playwright"]
+    },
+    {
       "groupName": "tsconfig monorepo",
       "matchSourceUrls": ["https://github.com/tsconfig/bases"]
     },
