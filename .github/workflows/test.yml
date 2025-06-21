@@ -89,11 +89,11 @@ jobs:
               - ".github/workflows/*.{yaml,yml}"
             eslint:
               - *app
-              - "**.{cjs,js,jsx,mjs,ts,tsx}"
+              - "**/*.{cjs,js,jsx,mjs,ts,tsx}"
               - eslint.config.*
             prettier:
               - *app
-              - "**.{cjs,css,js,json,jsx,mjs,ts,tsx,yaml,yml}"
+              - "**/*.{cjs,css,js,json,jsx,mjs,ts,tsx,yaml,yml}"
               - prettier.config.*
             prisma:
               - *common
@@ -106,10 +106,10 @@ jobs:
               - vitest.*
             typecheck:
               - *app
-              - "**.{ts,tsx}"
+              - "**/*.{ts,tsx}"
             yamllint:
               - *common
-              - "**.{yaml,yml}"
+              - "**/*.{yaml,yml}"
   actionlint:
     name: actionlint
     if: ${{ needs.changed-files.outputs.actions == 'true' }}
