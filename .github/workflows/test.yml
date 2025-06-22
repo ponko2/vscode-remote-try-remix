@@ -44,6 +44,7 @@ jobs:
         run: exit 0
   changed-files:
     name: Get changed files
+    if: ${{ github.event_name == 'pull_request' }}
     needs: verify-author
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -112,7 +113,8 @@ jobs:
               - "**/*.{yaml,yml}"
   actionlint:
     name: actionlint
-    if: ${{ needs.changed-files.outputs.actions == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.actions == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -127,7 +129,8 @@ jobs:
         uses: ponko2/actions/actionlint@main
   ghalint:
     name: ghalint
-    if: ${{ needs.changed-files.outputs.actions == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.actions == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -142,7 +145,8 @@ jobs:
         uses: ponko2/actions/ghalint@main
   zizmor:
     name: zizmor
-    if: ${{ needs.changed-files.outputs.actions == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.actions == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -157,6 +161,7 @@ jobs:
         uses: ponko2/actions/zizmor@main
   build:
     name: Build
+    if: ${{ always() && !failure() && !cancelled() && needs.test.result == 'success' }}
     needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -222,7 +227,8 @@ jobs:
       - run: editorconfig-checker
   eslint:
     name: ESLint
-    if: ${{ needs.changed-files.outputs.eslint == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.eslint == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -248,7 +254,8 @@ jobs:
         run: pnpm run lint:eslint
   prettier:
     name: Prettier
-    if: ${{ needs.changed-files.outputs.prettier == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.prettier == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -271,7 +278,8 @@ jobs:
         run: pnpm run lint:prettier
   prisma:
     name: Prisma
-    if: ${{ needs.changed-files.outputs.prisma == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.prisma == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -295,7 +303,8 @@ jobs:
       - run: git diff --exit-code
   test:
     name: Test
-    if: ${{ needs.changed-files.outputs.test == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.test == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     container:
@@ -327,7 +336,8 @@ jobs:
       - run: pnpm test
   typecheck:
     name: typecheck
-    if: ${{ needs.changed-files.outputs.typecheck == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.typecheck == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -353,7 +363,8 @@ jobs:
         run: pnpm run typecheck
   yamllint:
     name: yamllint
-    if: ${{ needs.changed-files.outputs.yamllint == 'true' }}
+    if: ${{ always() && !failure() && !cancelled() &&
+      (needs.changed-files.result == 'skipped' || needs.changed-files.outputs.yamllint == 'true') }}
     needs: changed-files
     runs-on: ubuntu-latest
     timeout-minutes: 60
