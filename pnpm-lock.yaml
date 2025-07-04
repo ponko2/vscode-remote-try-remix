@@ -45,8 +45,8 @@ importers:
         specifier: ^7.6.3
         version: 7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       remeda:
-        specifier: ^2.23.2
-        version: 2.23.2
+        specifier: ^2.23.3
+        version: 2.23.3
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
@@ -3814,8 +3814,8 @@ packages:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
 
-  remeda@2.23.2:
-    resolution: {integrity: sha512-4W75s4Ii5SDncp1TRLYRspJ+skm/FEHK7NLYk+q8Zy18mFeypXhGPdahmPvHkmqo38KfTTCjAqXRHMkmcQIEGA==}
+  remeda@2.23.3:
+    resolution: {integrity: sha512-2mzlSo0cUzpgOGiZTryB5/0JyFmpzktr5552Xhcy3K54PgSjZp7U7NN056YxgybBTyNP1BRwJg/37JIRVmJn8g==}
 
   replace-string@3.1.0:
     resolution: {integrity: sha512-yPpxc4ZR2makceA9hy/jHNqc7QVkd4Je/N0WRHm6bs3PtivPuPynxE5ejU/mp5EhnCv8+uZL7vhz8rkluSlx+Q==}
@@ -8548,7 +8548,7 @@ snapshots:
       gopd: 1.2.0
       set-function-name: 2.0.2
 
-  remeda@2.23.2:
+  remeda@2.23.3:
     dependencies:
       type-fest: 4.41.0
 
