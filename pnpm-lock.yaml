@@ -13,7 +13,7 @@ importers:
         version: 1.8.2(react@19.1.1)
       '@conform-to/zod':
         specifier: ^1.8.2
-        version: 1.8.2(zod@4.0.14)
+        version: 1.8.2(zod@4.0.15)
       '@prisma/client':
         specifier: ^6.13.0
         version: 6.13.0(prisma@6.13.0(magicast@0.3.5)(typescript@5.9.2))(typescript@5.9.2)
@@ -51,8 +51,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       zod:
-        specifier: ^4.0.14
-        version: 4.0.14
+        specifier: ^4.0.15
+        version: 4.0.15
     devDependencies:
       '@babel/preset-typescript':
         specifier: 7.27.1
@@ -4718,8 +4718,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.0.14:
-    resolution: {integrity: sha512-nGFJTnJN6cM2v9kXL+SOBq3AtjQby3Mv5ySGFof5UGRHrRioSJ5iG680cYNjE/yWk671nROcpPj4hAS8nyLhSw==}
+  zod@4.0.15:
+    resolution: {integrity: sha512-2IVHb9h4Mt6+UXkyMs0XbfICUh1eUrlJJAOupBHUhLRnKkruawyDddYRCs0Eizt900ntIMk9/4RksYl+FgSpcQ==}
 
 snapshots:
 
@@ -5057,10 +5057,10 @@ snapshots:
       '@conform-to/dom': 1.8.2
       react: 19.1.1
 
-  '@conform-to/zod@1.8.2(zod@4.0.14)':
+  '@conform-to/zod@1.8.2(zod@4.0.15)':
     dependencies:
       '@conform-to/dom': 1.8.2
-      zod: 4.0.14
+      zod: 4.0.15
 
   '@emnapi/core@1.4.5':
     dependencies:
@@ -9662,4 +9662,4 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.0.14: {}
+  zod@4.0.15: {}
