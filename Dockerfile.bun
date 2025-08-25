@@ -1,4 +1,4 @@
-FROM oven/bun:1@sha256:78f46b81b82d767ee8d729411f6f95089a403c21f17c20a5789df00263d7c5b5 as dependencies-env
+FROM oven/bun:1@sha256:5a2011bf09364b9af658ac1e66f60d08092f4291aeefbff448d58b027734fdd0 as dependencies-env
 COPY . /app
 
 FROM dependencies-env as development-dependencies-env
