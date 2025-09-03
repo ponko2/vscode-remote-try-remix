@@ -1,3 +1,4 @@
+// @ts-check
 /* eslint-disable import/no-named-as-default-member */
 
 import { includeIgnoreFile } from "@eslint/compat";
@@ -46,6 +47,7 @@ export default defineConfig(
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
   reactHooks.configs["recommended-latest"],
+  // @ts-expect-error -- https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/pull/1038
   jsxA11y.flatConfigs.recommended,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
