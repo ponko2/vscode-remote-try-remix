@@ -1,0 +1,8 @@
+minimumReleaseAge: 1440
+onlyBuiltDependencies:
+  - "@prisma/client"
+  - "@prisma/engines"
+  - "@tailwindcss/oxide"
+  - esbuild
+  - prisma
+  - unrs-resolver
