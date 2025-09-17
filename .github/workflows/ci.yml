@@ -172,15 +172,18 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: lts/*
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm run generate
-      - run: pnpm run build
+      - name: Run generate
+        run: pnpm run generate
+      - name: Run build
+        run: pnpm run build
   commitlint:
     name: commitlint
     if: ${{ github.event_name == 'pull_request' }}
@@ -196,7 +199,8 @@ jobs:
           fetch-depth: 50 # Assume PRs are less than 50 commits
           filter: blob:none
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
@@ -221,8 +225,10 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: editorconfig-checker/action-editorconfig-checker@0ab3427a3f09b17c21d489172245be511e0a16ea # v2.0.0
-      - run: editorconfig-checker
+      - name: Set up EditorConfig checker
+        uses: editorconfig-checker/action-editorconfig-checker@0ab3427a3f09b17c21d489172245be511e0a16ea # v2.0.0
+      - name: Run EditorConfig checker
+        run: editorconfig-checker
   eslint:
     name: ESLint
     if: ${{ always() && !failure() && !cancelled() &&
@@ -237,14 +243,16 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: lts/*
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm run generate
+      - name: Run generate
+        run: pnpm run generate
       - name: Add problem matchers
         run: echo "::add-matcher::.github/eslint-matcher.json"
       - name: Run ESLint
@@ -263,7 +271,8 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
@@ -286,16 +295,20 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: lts/*
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm exec prisma format
-      - run: pnpm exec prisma-case-format --file prisma/schema.prisma
-      - run: git diff --exit-code
+      - name: Run prisma format
+        run: pnpm exec prisma format
+      - name: Run prisma case format
+        run: pnpm exec prisma-case-format --file prisma/schema.prisma
+      - name: Validate Prisma schema is formatted
+        run: git diff --exit-code
   test:
     name: Test
     if: ${{ always() && !failure() && !cancelled() &&
@@ -319,15 +332,18 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm run generate
-      - run: pnpm test
+      - name: Run generate
+        run: pnpm run generate
+      - name: Run test
+        run: pnpm test
   typecheck:
     name: typecheck
     if: ${{ always() && !failure() && !cancelled() &&
@@ -342,14 +358,16 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+      - name: Set up pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: lts/*
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm run generate
+      - name: Run generate
+        run: pnpm run generate
       - name: Add problem matchers
         run: echo "::add-matcher::.github/tsc-matcher.json"
       - name: Run tsc
