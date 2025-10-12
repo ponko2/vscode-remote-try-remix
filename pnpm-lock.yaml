@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: ^1.11.0
-        version: 1.11.0(react@19.2.0)
+        specifier: ^1.12.0
+        version: 1.12.0(react@19.2.0)
       '@conform-to/zod':
-        specifier: ^1.11.0
-        version: 1.11.0(zod@4.1.12)
+        specifier: ^1.12.0
+        version: 1.12.0(zod@4.1.12)
       '@prisma/client':
         specifier: ^6.17.0
         version: 6.17.0(prisma@6.17.0(magicast@0.3.5)(typescript@5.9.3))(typescript@5.9.3)
@@ -437,16 +437,16 @@ packages:
     resolution: {integrity: sha512-bVUNBqG6aznYcYjTjnc3+Cat/iBgbgpflxbIBTnsHTX0YVpnmINPEkSRWymT2Q8aSH3Y7aKnEbunilkYe8TybA==}
     engines: {node: '>=v18'}
 
-  '@conform-to/dom@1.11.0':
-    resolution: {integrity: sha512-qneM158mqhPqGlMyvTiC7T2YpuDHxtaYUl8B8kSyj75YLETaQieR5jhXPt1SfYHqyDw0mdsUc2zR6yXzt94Hgw==}
+  '@conform-to/dom@1.12.0':
+    resolution: {integrity: sha512-TKTic9bKm7uEuf3ntrs5VeD3iDeEpSnA5H2qnAfI9dbostEr2hNlXCjOEGKFBiBtx+aPjpHtt/e0rs0+t+vWxg==}
 
-  '@conform-to/react@1.11.0':
-    resolution: {integrity: sha512-HIrYTTprPIScEmf5aI+DKnq+SGcx3SNEuxz4Wia8cDQbBGxtFMcCbRvMlN5dVGys5q4vf03Hy8wWJOsIeZoiEQ==}
+  '@conform-to/react@1.12.0':
+    resolution: {integrity: sha512-V4JkXTzRBEE8RbwKf4MzVykJI/kv9wu70qbiWnFgdlYbC0oA27iIN/7aAYKbTRXvzkWtoe6fpi5vjV0I9ikb5g==}
     peerDependencies:
       react: '>=18'
 
-  '@conform-to/zod@1.11.0':
-    resolution: {integrity: sha512-LN++4qOycJ01zciN5O9jud3qdHIBLGFChc1tKIcdlfP61ZI9p6J0w7KQNGU+UPzX3A09X1r6kKdiU/D+ynmN9w==}
+  '@conform-to/zod@1.12.0':
+    resolution: {integrity: sha512-+teD2CFI0a3qvyi0SlL5l7YKkau2cb5PzBV2W/bh9xZqlM8jnaMIc03bWJegvbvL4yzkeUvNZwncw9hYcm6a6w==}
     peerDependencies:
       zod: ^3.21.0 || ^4.0.0
 
@@ -5064,16 +5064,16 @@ snapshots:
       '@types/conventional-commits-parser': 5.0.1
       chalk: 5.6.2
 
-  '@conform-to/dom@1.11.0': {}
+  '@conform-to/dom@1.12.0': {}
 
-  '@conform-to/react@1.11.0(react@19.2.0)':
+  '@conform-to/react@1.12.0(react@19.2.0)':
     dependencies:
-      '@conform-to/dom': 1.11.0
+      '@conform-to/dom': 1.12.0
       react: 19.2.0
 
-  '@conform-to/zod@1.11.0(zod@4.1.12)':
+  '@conform-to/zod@1.12.0(zod@4.1.12)':
     dependencies:
-      '@conform-to/dom': 1.11.0
+      '@conform-to/dom': 1.12.0
       zod: 4.1.12
 
   '@emnapi/core@1.5.0':
