@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: ^1.12.0
+        specifier: ^1.12.1
         version: 1.12.1(react@19.2.0)
       '@conform-to/zod':
-        specifier: ^1.12.0
+        specifier: ^1.12.1
         version: 1.12.1(zod@4.1.12)
       '@prisma/client':
         specifier: ^6.17.1
