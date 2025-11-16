@@ -91,11 +91,11 @@ importers:
         specifier: 4.1.17
         version: 4.1.17(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@tsconfig/remix':
-        specifier: 2.0.5
-        version: 2.0.5
+        specifier: 2.0.6
+        version: 2.0.6
       '@tsconfig/strictest':
-        specifier: 2.0.7
-        version: 2.0.7
+        specifier: 2.0.8
+        version: 2.0.8
       '@types/react':
         specifier: 19.2.4
         version: 19.2.4
@@ -1200,11 +1200,11 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@tsconfig/remix@2.0.5':
-    resolution: {integrity: sha512-KawY0Z2oylbBsGbHZFE11O2kXuHF/LfT7NzwPl5CCfgmFy4jsMkVgMfnPQnsPe6Wdu2pNQMRzNoyRHU2PBAO1w==}
+  '@tsconfig/remix@2.0.6':
+    resolution: {integrity: sha512-EaFbMzmVcoZ1/Vggt9q4Hj0FuEuiitjk6mYy+AvU3CUknT99bkZzP3ktfeWhSdeQvnYb9NqPatWlVrtgfc6e/Q==}
 
-  '@tsconfig/strictest@2.0.7':
-    resolution: {integrity: sha512-lG1bXQloBVvQXasPBZSBaWbs7GNW4txZMYs7XMUVzM0s4seCbJACYBPFIRpGNVD3gC8gndK00AZON1uBrJt4Fw==}
+  '@tsconfig/strictest@2.0.8':
+    resolution: {integrity: sha512-XnQ7vNz5HRN0r88GYf1J9JJjqtZPiHt2woGJOo2dYqyHGGcd6OLGqSlBB6p1j9mpzja6Oe5BoPqWmeDx6X9rLw==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -5827,9 +5827,9 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@tsconfig/remix@2.0.5': {}
+  '@tsconfig/remix@2.0.6': {}
 
-  '@tsconfig/strictest@2.0.7': {}
+  '@tsconfig/strictest@2.0.8': {}
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
