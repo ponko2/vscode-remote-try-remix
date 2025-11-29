@@ -1,7 +1,7 @@
-import type { Todo } from "@prisma/client";
 import TodoFooter from "~/components/TodoFooter";
 import TodoHeader from "~/components/TodoHeader";
 import TodoList from "~/components/TodoList";
+import type { Todo } from "~/generated/prisma/client";
 import { cn } from "~/lib/utils";
 
 interface Props {
