@@ -1,5 +1,5 @@
-import type { Todo } from "@prisma/client";
 import TodoItem from "~/components/TodoItem";
+import type { Todo } from "~/generated/prisma/client";
 
 interface Props {
   todos: Todo[];

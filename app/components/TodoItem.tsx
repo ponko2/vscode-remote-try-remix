@@ -1,10 +1,10 @@
 import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod/v4";
-import type { Todo } from "@prisma/client";
 import { cva } from "class-variance-authority";
 import { useRef, useState } from "react";
 import { useFetcher } from "react-router";
 import TodoButton from "~/components/TodoButton";
+import type { Todo } from "~/generated/prisma/client";
 import { cn } from "~/lib/utils";
 import type { action } from "~/routes/todos.$todoId";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
@@ -116,7 +116,7 @@ function ToggleForm({
       />
       <label
         className={cn(
-          "bg-unchecked block h-full bg-left bg-no-repeat py-4 pr-4 pl-14 leading-tight font-normal break-words text-neutral-700 transition-colors duration-500",
+          "bg-unchecked block h-full bg-left bg-no-repeat py-4 pr-4 pl-14 leading-tight font-normal wrap-break-word text-neutral-700 transition-colors duration-500",
           "peer-checked:bg-checked peer-checked:text-neutral-400 peer-checked:line-through",
           "peer-focus:shadow-sm peer-focus:shadow-red-400 peer-focus:outline-hidden",
         )}

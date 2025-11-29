@@ -11,7 +11,7 @@ import babel from "vite-plugin-babel";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-const isVitest = process.env["VITEST"] === "true";
+const isVitest = process.env.VITEST === "true";
 const isStorybook = process.argv[1]?.includes("storybook");
 
 export default defineConfig({

@@ -1,5 +1,5 @@
-import type { Todo } from "@prisma/client";
-import prisma from "~/.server/database";
+import { prisma } from "~/.server/database";
+import type { Todo } from "~/generated/prisma/client";
 
 // Temporary workaround for https://github.com/colinhacks/zod/issues/635
 type Optional<T, K extends keyof T> = Omit<T, K> & {

@@ -11,3 +11,7 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[app/generated/**]
+trim_trailing_whitespace = unset
+insert_final_newline = unset
