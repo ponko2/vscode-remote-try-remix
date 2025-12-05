@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: ^1.13.3
-        version: 1.13.3(react@19.2.0)
+        specifier: ^1.14.0
+        version: 1.14.1(react@19.2.0)
       '@conform-to/zod':
-        specifier: ^1.13.3
-        version: 1.13.3(zod@4.1.13)
+        specifier: ^1.14.0
+        version: 1.14.1(zod@4.1.13)
       '@dotenvx/dotenvx':
         specifier: ^1.51.1
         version: 1.51.1
@@ -444,16 +444,16 @@ packages:
     resolution: {integrity: sha512-bVUNBqG6aznYcYjTjnc3+Cat/iBgbgpflxbIBTnsHTX0YVpnmINPEkSRWymT2Q8aSH3Y7aKnEbunilkYe8TybA==}
     engines: {node: '>=v18'}
 
-  '@conform-to/dom@1.13.3':
-    resolution: {integrity: sha512-V4uNfUcx0cfuwnL/yNtjRvWxzwyNWhayBJXhRDBxEtiqBJiSEge6qeMN0xSUDbZezj5uAl13rzVQyf6FZXoOZQ==}
+  '@conform-to/dom@1.14.1':
+    resolution: {integrity: sha512-5ztGcVOo7KbgLBps/OCaxeXPgWxBQzPhBZ3WV3hKC2EkXGv5uP1mqVQKc6rB3QBDCJFyjWugc7OvwZ1nAks9rA==}
 
-  '@conform-to/react@1.13.3':
-    resolution: {integrity: sha512-3qLE52gLUKX9UBadto06mluqU+LS+S/oo/KXfCWJYhW2WxtZg87mG0c1kstPVBOOkocPzCCHN6Hjo4vwrGgiPg==}
+  '@conform-to/react@1.14.1':
+    resolution: {integrity: sha512-X74XoTiiVyNH4LEU6QX8c+2eqnB1cshAwnjqZsNDjrT9Nvn+b2wMG0QjjMxZ4ARiWt4rY81Vn1R/nliZcTSh4A==}
     peerDependencies:
       react: '>=18'
 
-  '@conform-to/zod@1.13.3':
-    resolution: {integrity: sha512-HimtfcJPgjlhmMRWUvvyFvgdPgAmG/54qY/Bp1Wtoi+mRQ4ffBuBy+0L8mlc1USeI1X2YEZDfMurOlTf92xQwA==}
+  '@conform-to/zod@1.14.1':
+    resolution: {integrity: sha512-eGg5Hq97X1iq1SaJL48mIn7bJGfJNf6bHt6TLhCAqVGCYaeSuq+592YMe4hps3aii1dJ3qRDGs75kj3/nsBUgA==}
     peerDependencies:
       zod: ^3.21.0 || ^4.0.0
 
@@ -5506,16 +5506,16 @@ snapshots:
       '@types/conventional-commits-parser': 5.0.2
       chalk: 5.6.2
 
-  '@conform-to/dom@1.13.3': {}
+  '@conform-to/dom@1.14.1': {}
 
-  '@conform-to/react@1.13.3(react@19.2.0)':
+  '@conform-to/react@1.14.1(react@19.2.0)':
     dependencies:
-      '@conform-to/dom': 1.13.3
+      '@conform-to/dom': 1.14.1
       react: 19.2.0
 
-  '@conform-to/zod@1.13.3(zod@4.1.13)':
+  '@conform-to/zod@1.14.1(zod@4.1.13)':
     dependencies:
-      '@conform-to/dom': 1.13.3
+      '@conform-to/dom': 1.14.1
       zod: 4.1.13
 
   '@dotenvx/dotenvx@1.51.1':
