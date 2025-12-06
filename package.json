@@ -70,6 +70,13 @@
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "4.0.15"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.11.1",
+      "onFail": "download"
+    }
+  },
   "packageManager": "pnpm@10.24.0",
   "private": true,
   "scripts": {
