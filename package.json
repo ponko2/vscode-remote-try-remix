@@ -2,8 +2,8 @@
   "name": "vscode-remote-try-remix",
   "version": "0.1.0",
   "dependencies": {
-    "@conform-to/react": "^1.14.1",
-    "@conform-to/zod": "^1.14.1",
+    "@conform-to/react": "^1.15.0",
+    "@conform-to/zod": "^1.15.0",
     "@dotenvx/dotenvx": "^1.51.1",
     "@prisma/adapter-better-sqlite3": "^7.1.0",
     "@prisma/client": "^7.1.0",
