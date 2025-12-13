@@ -1,5 +1,6 @@
 *.tsbuildinfo
 *storybook.log
+.direnv/
 .pnpm-store/
 .react-router/
 /build
