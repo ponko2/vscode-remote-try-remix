@@ -15,7 +15,7 @@ importers:
         specifier: ^1.15.0
         version: 1.15.0(zod@4.1.13)
       '@dotenvx/dotenvx':
-        specifier: ^1.51.1
+        specifier: ^1.51.2
         version: 1.51.2
       '@prisma/adapter-better-sqlite3':
         specifier: ^7.1.0
