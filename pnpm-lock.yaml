@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@conform-to/react':
-        specifier: ^1.15.0
+        specifier: ^1.15.1
         version: 1.15.1(react@19.2.3)
       '@conform-to/zod':
-        specifier: ^1.15.0
+        specifier: ^1.15.1
         version: 1.15.1(zod@4.2.1)
       '@dotenvx/dotenvx':
         specifier: ^1.51.2
