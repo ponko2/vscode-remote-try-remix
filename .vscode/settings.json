@@ -17,6 +17,9 @@
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   }
