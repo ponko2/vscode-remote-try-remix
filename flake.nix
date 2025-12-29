@@ -30,10 +30,15 @@
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               editorconfig-checker
+              nixfmt-rfc-style
               nodejs
               pnpm
+              sqlite
               yamllint
             ];
+            shellHook = ''
+              pnpm install
+            '';
           };
           formatter = pkgs.nixfmt-tree;
         };

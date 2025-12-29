@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
-git config --global --add safe.directory /workspaces/vscode-remote-try-remix
+nix profile add nixpkgs#nix-direnv
+mkdir -p ~/.config/direnv
+echo "source ~/.nix-profile/share/nix-direnv/direnvrc" >> ~/.config/direnv/direnvrc
 
-pnpm install --force
-pnpm exec prisma migrate dev
+nix develop --command pnpm exec prisma migrate dev
+
+direnv allow
