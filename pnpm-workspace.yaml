@@ -9,3 +9,5 @@ onlyBuiltDependencies:
   - lefthook
   - prisma
   - unrs-resolver
+
+scriptsPrependNodePath: true
