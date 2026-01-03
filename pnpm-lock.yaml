@@ -51,7 +51,7 @@ importers:
         specifier: ^7.11.0
         version: 7.11.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       remeda:
-        specifier: ^2.32.2
+        specifier: ^2.33.0
         version: 2.33.0
       tailwind-merge:
         specifier: ^3.4.0
