@@ -55,7 +55,7 @@
     "globals": "17.1.0",
     "lefthook": "2.0.15",
     "npm-run-all2": "8.0.4",
-    "playwright": "1.57.0",
+    "playwright": "1.58.0",
     "prettier": "3.8.1",
     "prettier-plugin-tailwindcss": "0.7.2",
     "prisma": "7.2.0",
