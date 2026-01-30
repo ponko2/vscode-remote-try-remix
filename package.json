@@ -35,7 +35,7 @@
     "@tailwindcss/vite": "4.1.18",
     "@tsconfig/remix": "2.0.6",
     "@tsconfig/strictest": "2.0.8",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.2",
     "@vitest/browser": "4.0.18",
