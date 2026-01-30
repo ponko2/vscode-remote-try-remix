@@ -42,10 +42,10 @@ importers:
         specifier: ^5.1.34
         version: 5.1.34
       react:
-        specifier: ^19.2.3
+        specifier: ^19.2.4
         version: 19.2.4
       react-dom:
-        specifier: ^19.2.3
+        specifier: ^19.2.4
         version: 19.2.4(react@19.2.4)
       react-router:
         specifier: ^7.13.0
