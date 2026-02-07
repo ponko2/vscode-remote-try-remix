@@ -97,8 +97,8 @@ importers:
         specifier: 4.1.18
         version: 4.1.18(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.30.2))
       '@tsconfig/remix':
-        specifier: 2.0.6
-        version: 2.0.6
+        specifier: 2.0.7
+        version: 2.0.7
       '@tsconfig/strictest':
         specifier: 2.0.8
         version: 2.0.8
@@ -1307,8 +1307,8 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@tsconfig/remix@2.0.6':
-    resolution: {integrity: sha512-EaFbMzmVcoZ1/Vggt9q4Hj0FuEuiitjk6mYy+AvU3CUknT99bkZzP3ktfeWhSdeQvnYb9NqPatWlVrtgfc6e/Q==}
+  '@tsconfig/remix@2.0.7':
+    resolution: {integrity: sha512-ntj1qIIlSz8AUUzjetFd/JfrrLsGZqY72piQ3f3MVB/IgLYQPRrAn99lkzyQm4AljffhtvrDkfX6qFa7uJ7Z8g==}
 
   '@tsconfig/strictest@2.0.8':
     resolution: {integrity: sha512-XnQ7vNz5HRN0r88GYf1J9JJjqtZPiHt2woGJOo2dYqyHGGcd6OLGqSlBB6p1j9mpzja6Oe5BoPqWmeDx6X9rLw==}
@@ -6131,7 +6131,7 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@tsconfig/remix@2.0.6': {}
+  '@tsconfig/remix@2.0.7': {}
 
   '@tsconfig/strictest@2.0.8': {}
 
