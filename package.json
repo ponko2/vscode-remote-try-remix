@@ -1,6 +1,30 @@
 {
   "name": "vscode-remote-try-remix",
   "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "build-storybook": "storybook build",
+    "dev": "react-router dev",
+    "fix": "run-s fix:oxlint fix:oxfmt fix:prisma-case fix:prisma",
+    "fix:oxfmt": "oxfmt",
+    "fix:oxlint": "oxlint --fix",
+    "fix:prisma": "prisma format",
+    "fix:prisma-case": "prisma-case-format --file prisma/schema.prisma",
+    "generate": "run-p --aggregate-output -c -l generate:*",
+    "generate:prisma": "prisma generate",
+    "generate:react-router": "react-router typegen",
+    "lint": "run-p --aggregate-output -c -l lint:*",
+    "lint:oxfmt": "oxfmt --check",
+    "lint:oxlint": "oxlint",
+    "setup": "corepack enable pnpm",
+    "start": "react-router-serve ./build/server/index.js",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest --passWithNoTests",
+    "test-storybook": "vitest --project=storybook",
+    "typecheck": "tsc --build --noEmit"
+  },
   "dependencies": {
     "@conform-to/react": "^1.17.1",
     "@conform-to/zod": "^1.17.1",
@@ -64,29 +88,5 @@
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@10.32.1",
-  "private": true,
-  "scripts": {
-    "build": "react-router build",
-    "build-storybook": "storybook build",
-    "dev": "react-router dev",
-    "fix": "run-s fix:oxlint fix:oxfmt fix:prisma-case fix:prisma",
-    "fix:oxfmt": "oxfmt",
-    "fix:oxlint": "oxlint --fix",
-    "fix:prisma": "prisma format",
-    "fix:prisma-case": "prisma-case-format --file prisma/schema.prisma",
-    "generate": "run-p --aggregate-output -c -l generate:*",
-    "generate:prisma": "prisma generate",
-    "generate:react-router": "react-router typegen",
-    "lint": "run-p --aggregate-output -c -l lint:*",
-    "lint:oxfmt": "oxfmt --check",
-    "lint:oxlint": "oxlint",
-    "setup": "corepack enable pnpm",
-    "start": "react-router-serve ./build/server/index.js",
-    "storybook": "storybook dev -p 6006",
-    "test": "vitest --passWithNoTests",
-    "test-storybook": "vitest --project=storybook",
-    "typecheck": "tsc --build --noEmit"
-  },
-  "type": "module"
+  "packageManager": "pnpm@10.32.1"
 }

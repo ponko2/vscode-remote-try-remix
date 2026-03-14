@@ -22,10 +22,7 @@ export default function TodoPage({ todos, type }: Props) {
             "before:shadow-[0_1px_1px_rgba(0,0,0,0.2),0_8px_0_-3px_#f5f5f5,0_9px_1px_-3px_rgba(0,0,0,0.2),0_16px_0_-6px_#f5f5f5,0_17px_2px_-6px_rgba(0,0,0,0.2)]",
           )}
         >
-          <TodoHeader
-            completedTodosCount={completedTodosCount}
-            todosCount={todosCount}
-          />
+          <TodoHeader completedTodosCount={completedTodosCount} todosCount={todosCount} />
           <TodoList
             todos={((): Todo[] => {
               switch (type) {
@@ -38,10 +35,7 @@ export default function TodoPage({ todos, type }: Props) {
               }
             })()}
           />
-          <TodoFooter
-            completedTodosCount={completedTodosCount}
-            todosCount={todosCount}
-          />
+          <TodoFooter completedTodosCount={completedTodosCount} todosCount={todosCount} />
         </section>
       </div>
     </div>

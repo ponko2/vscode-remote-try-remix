@@ -1,17 +1,16 @@
 import { parseWithZod } from "@conform-to/zod/v4";
 import * as R from "remeda";
 import { z } from "zod";
+
 import { deleteTodo, updateTodo } from "~/.server/models/todo";
 import { deleteTodoSchema, updateTodoSchema } from "~/schemas/todo";
+
 import type { Route } from "./+types/todos.$todoId";
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
   const submission = parseWithZod(formData, {
-    schema: z.discriminatedUnion("_method", [
-      deleteTodoSchema,
-      updateTodoSchema,
-    ]),
+    schema: z.discriminatedUnion("_method", [deleteTodoSchema, updateTodoSchema]),
   });
   if (submission.status !== "success") {
     return submission.reply();
