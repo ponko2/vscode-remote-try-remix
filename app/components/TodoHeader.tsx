@@ -2,6 +2,7 @@ import { getFormProps, getInputProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod/v4";
 import { useRef } from "react";
 import { useFetcher } from "react-router";
+
 import { cn } from "~/lib/utils";
 import type { action as createAction } from "~/routes/todos";
 import type { action as toggleAction } from "~/routes/todos.toggle";
@@ -23,12 +24,7 @@ function CreateForm() {
     },
   });
   return (
-    <fetcher.Form
-      {...getFormProps(form)}
-      action="/todos"
-      method="post"
-      ref={formRef}
-    >
+    <fetcher.Form {...getFormProps(form)} action="/todos" method="post" ref={formRef}>
       <input
         {...getInputProps(fields.title, { type: "text" })}
         className={cn(
@@ -82,9 +78,7 @@ export default function TodoHeader({ todosCount, completedTodosCount }: Props) {
         todos
       </h1>
       <CreateForm />
-      {!!todosCount && (
-        <ToggleForm checked={completedTodosCount === todosCount} />
-      )}
+      {!!todosCount && <ToggleForm checked={completedTodosCount === todosCount} />}
     </header>
   );
 }

@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
 import { NavLink, useFetcher } from "react-router";
+
 import TodoButton from "~/components/TodoButton";
 import type { action } from "~/routes/todos.completed";
 
@@ -11,11 +12,7 @@ interface Props {
 function CompletedForm() {
   const fetcher = useFetcher<typeof action>();
   return (
-    <fetcher.Form
-      action="/todos/completed"
-      className="text-right"
-      method="post"
-    >
+    <fetcher.Form action="/todos/completed" className="text-right" method="post">
       <TodoButton
         className="cursor-pointer no-underline hover:underline active:no-underline"
         type="submit"
@@ -33,17 +30,14 @@ export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
 
   const activeCount = todosCount - completedTodosCount;
 
-  const link = cva(
-    "m-1 rounded-sm border px-2 py-1 no-underline hover:border-red-400",
-    {
-      variants: {
-        intent: {
-          active: ["border-red-700"],
-          inactive: ["border-transparent"],
-        },
+  const link = cva("m-1 rounded-sm border px-2 py-1 no-underline hover:border-red-400", {
+    variants: {
+      intent: {
+        active: ["border-red-700"],
+        inactive: ["border-transparent"],
       },
     },
-  );
+  });
 
   return (
     <footer className="isolate grid grid-cols-2 gap-2 px-4 py-2.5 sm:grid-cols-3">
@@ -60,9 +54,7 @@ export default function TodoFooter({ todosCount, completedTodosCount }: Props) {
           <li className="inline" key={href}>
             <NavLink
               className={({ isActive }) =>
-                isActive
-                  ? link({ intent: "active" })
-                  : link({ intent: "inactive" })
+                isActive ? link({ intent: "active" }) : link({ intent: "inactive" })
               }
               to={href}
             >

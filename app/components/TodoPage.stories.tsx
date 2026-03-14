@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect } from "storybook/test";
 import { createRoutesStub } from "react-router";
+import { expect } from "storybook/test";
+
 import TodoPage from "~/components/TodoPage";
 
 const meta = {
