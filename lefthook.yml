@@ -5,23 +5,19 @@ commit-msg:
 pre-commit:
   parallel: true
   jobs:
-    - group:
-        parallel: false
-        jobs:
-          - name: ESLint
-            run: pnpm exec eslint --fix {staged_files}
-            glob: "*.{cjs,js,jsx,mjs,ts,tsx}"
-            stage_fixed: true
-          - name: Prettier
-            run: pnpm exec prettier --write {staged_files}
-            glob: "*.{cjs,js,jsx,mjs,ts,tsx}"
-            stage_fixed: true
     - name: EditorConfig
       run: editorconfig-checker {staged_files}
-    - name: Prettier
-      run: pnpm exec prettier --write {staged_files}
-      glob: "*.{css,json,yaml,yml}"
-      stage_fixed: true
+    - name: Oxc
+      group:
+        parallel: false
+        jobs:
+          - name: Oxfmt
+            run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
+            stage_fixed: true
+          - name: Oxlint
+            run: pnpm exec oxlint --deny-warnings --fix --type-aware --type-check {staged_files}
+            glob: "*.{js,jsx,ts,tsx,mjs,cjs}"
+            stage_fixed: true
     - name: Prisma
       group:
         parallel: false

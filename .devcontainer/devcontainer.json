@@ -32,10 +32,9 @@
         "EditorConfig.EditorConfig",
         "Prisma.prisma",
         "bradlc.vscode-tailwindcss",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
         "jnoortheen.nix-ide",
-        "mkhl.direnv"
+        "mkhl.direnv",
+        "oxc.oxc-vscode"
       ]
     }
   }

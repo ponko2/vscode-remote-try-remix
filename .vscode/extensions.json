@@ -3,10 +3,9 @@
     "EditorConfig.EditorConfig",
     "Prisma.prisma",
     "bradlc.vscode-tailwindcss",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "jnoortheen.nix-ide",
     "mkhl.direnv",
-    "ms-vscode-remote.vscode-remote-extensionpack"
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "oxc.oxc-vscode"
   ]
 }
